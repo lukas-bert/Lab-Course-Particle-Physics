@@ -1,0 +1,12 @@
+**/build
+*.pyc
+*.tmp
+*.log
+*.bcf
+*.aux
+*.xml
+*.run.xml
+*.run
+*.swp
+.vscode
+.DS_Store
