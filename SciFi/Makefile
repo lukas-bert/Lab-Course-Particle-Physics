@@ -1,14 +1,22 @@
 all: build/SciFi.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+
+content/data/Simulation/dataframe.csv: simulation.py ../matplotlibrc ../header-matplotlib.tex | build
+	# so that matplotlib can find the tex header when running
+	# LaTeX in the tmp directory
+	# and set the matplotlibrc
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python simulation.py
+
+build/theta_sim.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
 # hier weitere Abhängigkeiten für build/SciFi.pdf deklarieren:
-build/SciFi.pdf: build/plot.pdf
+build/SciFi.pdf: content/data/Simulation/dataframe.csv build/theta_sim.pdf
+build/theta_sim.pdf: content/data/Simulation/dataframe.csv
 
 build/SciFi.pdf: FORCE | build
 	# to find header and bib files in the main directory
@@ -30,7 +38,7 @@ build:
 clean:
 	rm -rf build
 	rm SciFi.pdf
-
+	rm content/data/Simulation/dataframe.csv
 FORCE:
 
 .PHONY: all clean

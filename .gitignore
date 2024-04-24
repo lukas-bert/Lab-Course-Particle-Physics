@@ -10,3 +10,6 @@
 *.swp
 .vscode
 .DS_Store
+**/.ipynb_checkpoints
+SciFi/.ipynb_checkpoints/Simulation-checkpoint.ipynb
+SciFi/content/data/Simulation/dataframe.csv
