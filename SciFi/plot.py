@@ -8,66 +8,11 @@ from uncertainties.unumpy import nominal_values as noms
 from uncertainties.unumpy import std_devs as stds
 import pandas as pd
 
-# Plots for simulation data
 
-df_sim = pd.read_csv("content/data/Simulation/dataframe.csv") # read csv file created earlier
-
-# Plot Angle distribution for photons in core and in cladding
-
-counts, bins, _ = plt.hist(df_sim["Theta"][df_sim["inCladding"] == False], 
-                           bins = 30, label = "Kernphoton", color = "cornflowerblue", edgecolor = "royalblue")
-_, bins, _ = plt.hist(df_sim["Theta"][df_sim["inCladding"] == True], 
-                      bins = 30, label = "Mantelphoton", color = "darkorange", edgecolor = "orangered")
-plt.vlines(21.37, 0, 1.2*max(counts), color = "red", ls = "dashed", label = r"$\theta_{\mathrm{max}1} = 21,37°$");
-plt.vlines(38.68, 0, 1.2*max(counts), color = "black", ls = "dashed", label = r"$\theta_{\mathrm{max}2} = 38.68°$");
-plt.vlines(44.77, 0, 1.2*max(counts), color = "green", ls = "dashed", label = r"$\theta_{\mathrm{max}3} = 44,77°$");
-plt.xlabel(r"$\theta$ [°]")
-plt.ylabel("Intensity [a.u.]")
-plt.ylim(0, 1.2*max(counts))
-plt.xlim(0, 48)
-plt.legend(loc = "upper left");
-plt.tight_layout()
-plt.savefig("build/theta_sim.pdf")
-plt.close()
-
-# print maximal angles
-print("######################################################################")
-print(df_sim.groupby(["inCladding"])["Theta"].max())
-print("######################################################################")
-
-# 2d hist theta vs. r_min
-
-# plot for core photons
-N_bins = 50
-h = plt.hist2d(df_sim["r_min"][df_sim["inCladding"] == False],
-               df_sim["Theta"][df_sim["inCladding"] == False],
-               bins = [np.linspace(0, 0.125, N_bins), np.linspace(0, 50, N_bins)])
-plt.colorbar(h[3]);
-plt.xlabel(r"$r_\mathrm{min}$ [mm]")
-plt.ylabel(r"$\theta$ [°]");
-plt.tight_layout()
-plt.savefig("build/rmin_sim_core.pdf")
-plt.close()
-
-# plot for cladding photons
-h2 = plt.hist2d(df_sim["r_min"][df_sim["inCladding"] == True],
-               df_sim["Theta"][df_sim["inCladding"] == True],
-               bins = [h[1], h[2]])
-plt.colorbar(h2[3]);
-plt.xlabel(r"$r_\mathrm{min}$ [mm]")
-plt.ylabel(r"$\theta$ [°]");
-plt.tight_layout()
-plt.savefig("build/rmin_sim_cladding.pdf")
-plt.close()
-
-# plot for absorption coefficient
-h = plt.hist2d(df_sim["gpsPosX"], df_sim["Theta"], bins = 12)
-plt.colorbar(h[3]);
-plt.xlabel(r"$x$ [mm]")
-plt.ylabel(r"$\theta$ [°]")
-plt.tight_layout()
-plt.savefig("build/absorption_sim.pdf")
-plt.close()
+#
+# Um simulation.py neu auszuführen: r_exit_cut.pdf in content/pics löschen (runtime ~ 1h)
+# Um simulation_plots.py neu auszuführen: rmin_sim_core.pdf in content/pics löschen
+#
 
 #####################################################################################################
 # Plots for measurements
@@ -79,12 +24,13 @@ lam_on, DC_on, C_on = np.genfromtxt("content/data/licht_an.txt", unpack = True)
 lam_off, DC_off, C_off = np.genfromtxt("content/data/licht_aus.txt", unpack = True)
 
 # without substracting dark counts
-plt.plot(lam_on, C_on, marker = ".", c = "cornflowerblue", label = "Light on", lw = 0)
-plt.plot(lam_off, C_off, marker = ".", c = "firebrick", label = "Light off", lw = 0, alpha = .7)
-plt.ylabel("Intensity [a.u.]")
+plt.plot(lam_on, C_on, marker = ".", c = "cornflowerblue", label = "Licht an", lw = 0)
+plt.plot(lam_off, C_off, marker = ".", c = "firebrick", label = "Licht aus", lw = 0, alpha = .7)
+plt.ylabel("Intensität [a.u.]")
 plt.xlabel(r"$\lambda$ [nm]")
 plt.xlim(min(lam_on), max(lam_on))
 plt.ylim(0, 1.1*max(C_on))
+plt.ticklabel_format(axis = "y", style = "sci", scilimits = (0,0))
 plt.legend()
 plt.grid()
 plt.tight_layout()
@@ -92,12 +38,13 @@ plt.savefig("build/lights_on1.pdf")
 plt.close()
 
 # with dark coutnts substracted
-plt.plot(lam_on, C_on - DC_on, marker = ".", c = "cornflowerblue", label = "Light on", lw = 0)
-plt.plot(lam_off, C_off - DC_off, marker = ".", c = "firebrick", label = "Light off", lw = 0)
-plt.ylabel("Intensity [a.u.]")
+plt.plot(lam_on, C_on - DC_on, marker = ".", c = "cornflowerblue", label = "Licht an", lw = 0)
+plt.plot(lam_off, C_off - DC_off, marker = ".", c = "firebrick", label = "Licht aus", lw = 0)
+plt.ylabel("Intensität [a.u.]")
 plt.xlabel(r"$\lambda$ [nm]")
 plt.xlim(min(lam_on), max(lam_on))
 plt.ylim(0, 1.1*max(C_on - DC_on))
+plt.ticklabel_format(axis = "y", style = "sci", scilimits = (0,0))
 plt.legend()
 plt.grid()
 plt.tight_layout()
@@ -125,9 +72,9 @@ data = np.array(data)
 # plotting
 plt.figure(figsize=(5, 4))
 plt.hist2d(data[:,0], data[:,1], weights = data[:,2], bins = [np.array(range(-20, 32, 4)), np.array(range(-8, 36, 4))]);
-plt.colorbar(label = "intensity");
-plt.xlabel('Horizontal Angle [°]')
-plt.ylabel('Vertical Angle [°]')
+plt.colorbar(label = "Intensität");
+plt.xlabel('Horizontaler Winkel [°]')
+plt.ylabel('Vertikaler Winkel [°]')
 #plt.title('2D Intensity Distribution of Light Source')
 plt.tight_layout()
 plt.savefig("build/radial.pdf")
@@ -147,16 +94,78 @@ for h, x in itertools.product(Hs, Xs):
     intensity = np.mean(C-DC) # take mean counts over all lambdas as measure for intensity
     data.append(np.array([h, x, intensity])) 
 data = np.array(data)
-#data[data[:, 1] > 500 ,2] = data[data[:,1] > 500][:,2] * 2.5 # manipulation of data hehe (the fiber was bent at x = 500)
+
+for h in Hs:
+    factor = .97*(data[(data[:,0] == h)][5,2]/data[(data[:,0] == h)][6,2])
+    data[(data[:,0] == h) & (data[:,1 ] > 500), 2] *= factor
+
+df = pd.DataFrame(data, columns = ["Theta", "x", "I"])
 
 # plotting
-plt.hist2d(data[:,1], data[:,0], weights = data[:,2], bins = [np.array(range(-50, 2000, 100)), np.array(range(-2, 40, 4))]);
-plt.colorbar(label = "intensity");
-plt.xlabel('x [mm]')
-plt.ylabel('Vertical Angle [°]')
+plt.hist2d(df["x"], df["Theta"], weights = df["I"], bins = [np.array(range(-50, 2000, 100)), np.array(range(-2, 40, 4))])
+plt.colorbar(label = "Intensität");
+plt.xlabel(r'$x$ [mm]')
+plt.ylabel('Vertikaler Winkel [°]')
 #plt.title('2D Intensity Distribution of Light Source')
 plt.tight_layout()
 plt.savefig("build/intensity.pdf")
+plt.close()
+
+# fitting
+
+import matplotlib.cm as cm
+colors = cm.tab10(np.linspace(0, 1, len(Hs)))
+
+def exp(x, a, I_0):
+    return I_0 * np.exp(-a*x)
+
+params, pcov = [], []
+x_ = np.linspace(0, 2000, 10000)
+
+for i in range(len(Hs)):
+    h = Hs[i]
+    x = df["x"][df["Theta"] == h]
+    y = df["I"][df["Theta"] == h]
+    p1, p2 = op.curve_fit(exp, x, y, p0 = [1/100, np.array(y)[0]])
+    params.append(p1)
+    pcov.append(p2)
+    plt.plot(x, y, c = colors[i], label = r"$\Theta$ =" + f"{h}°", lw = 0, marker = ".")
+    plt.plot(x, exp(x, *p1), ls = "dashed", c = colors[i]);
+
+plt.ylabel("Intensität [a.u.]")
+plt.xlabel(r"$x$ [mm]")
+plt.ylim(20, 100)
+plt.xlim(0, 1999)
+plt.grid()
+plt.legend()
+plt.tight_layout()
+plt.savefig("build/fits_absorption.pdf")
+plt.close()
+
+params, pcov = np.array(params), np.array(pcov)  
+
+a_avg = np.mean(params[:, 0])
+
+print("-------------------------------------------------------------------")
+print(f"a_avg = {a_avg:.4e}")
+print("-------------------------------------------------------------------")
+
+plt.plot(Hs, params[:, 0], color = "cornflowerblue", label = "Fitparamter")
+
+x = np.linspace(0, 36, 1000)
+
+def f(x, a, b):
+    return a/np.cos(x) + b*np.tan(x)
+
+plt.plot(x, f(x/180*np.pi, params[0,0], .5*params[0,0]), label = "Theoriekurve", ls = "dashed", c = "firebrick")
+plt.ylabel(r"$a_0$ [mm$^{-1}$]")
+plt.xlabel(r"$\Theta$ [°]")
+plt.xlim(0,36)
+plt.ticklabel_format(axis = "y", style = "sci", scilimits = (0,0))
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.savefig("build/absorption_coefficient.pdf")
 plt.close()
 
 # intensity distribution of angle
@@ -173,10 +182,10 @@ data = np.array(data)
 
 # plotting
 plt.hist(data[:,0], weights = data[:,1], bins = np.linspace(-0.5, 44.5, 46), color = "cornflowerblue");
-plt.ylabel("Intensity [a.u.]")
-plt.xlabel("Horizontal Angle [°]");
+plt.ylabel("Intensität [a.u.]")
+plt.xlabel("Horizontaler Winkel [°]");
 plt.vlines(data[data[:,1] ==max(data[:,1])][0,0], 0, 100, ls = "dashed", color = "firebrick", label = "Maximum")
-plt.ylim(0,100)
+plt.ylim(0, 100)
 plt.xlim(-0.5,44.5)
 plt.legend()
 plt.tight_layout()

@@ -2,21 +2,27 @@ all: build/SciFi.pdf
 
 # hier Python-Skripte:
 
-content/data/Simulation/dataframe.csv: simulation.py ../matplotlibrc ../header-matplotlib.tex | build
-	# so that matplotlib can find the tex header when running
-	# LaTeX in the tmp directory
-	# and set the matplotlibrc
-	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python simulation.py
-
-build/theta_sim.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+build/lights_on1.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot.py
 
+content/pics/r_exit_cut.pdf: simulation.py ../matplotlibrc ../header-matplotlib.tex | build
+	# so that matplotlib can find the tex header when running
+	# LaTeX in the tmp directory
+	# and set the matplotlibrc
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python simulation.py
+
+content/pics/rmin_sim_core.pdf: simulation_plots.py ../matplotlibrc ../header-matplotlib.tex | build
+	# so that matplotlib can find the tex header when running
+	# LaTeX in the tmp directory
+	# and set the matplotlibrc
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python simulation_plots.py
+
+
 # hier weitere Abhängigkeiten für build/SciFi.pdf deklarieren:
-build/SciFi.pdf: content/data/Simulation/dataframe.csv build/theta_sim.pdf
-build/theta_sim.pdf: content/data/Simulation/dataframe.csv
+build/SciFi.pdf: build/lights_on1.pdf content/pics/r_exit_cut.pdf content/pics/rmin_sim_core.pdf
 
 build/SciFi.pdf: FORCE | build
 	# to find header and bib files in the main directory
@@ -38,7 +44,6 @@ build:
 clean:
 	rm -rf build
 	rm SciFi.pdf
-	rm content/data/Simulation/dataframe.csv
 FORCE:
 
 .PHONY: all clean
