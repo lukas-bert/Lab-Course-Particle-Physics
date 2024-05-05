@@ -1,2 +1,50 @@
 \section{Durchführung}
 \label{sec:Durchführung}
+Zur Analyse der Funktionsweise des SciFi Detektors wird in diesem Versuch eine einzelne szintillierende Faser genauer betrachtet. Der dafür verwendete 
+Versuchsaufbau ist in \autoref{sec:aufbau} beschrieben und das Messprogramm wird in \autoref{sec:messprogramm} erklärt.
+
+\subsection{Aufbau}
+\label{sec:aufbau}
+Eine szintillierende Faser ist entlang der x-Achse eines xy-Tisches eingespannt, sodass eine LED präzise über eine Länge von \qtyrange{0}{2000}{\milli\metre}
+der Faser gefahren werden kann. An einem Ende der Faser sitzt ein Spektrometer, welches mit Schrittmotoren entlang der Horizontalen und der Vertikalen bewegt
+werden kann. Ein angeschlossener Computer erlaubt die Steuerung der Motoren und der LED sowie die automatische Datenerfassung.
+
+\subsection{Messprogramm}
+\label{sec:messprogramm}
+Bevor die Messungen starten können, muss der Raum abgedunkelt werden, damit Streulichteffekte unterdrückt werden können. Darüber hinaus wird bei jeder Messung 
+sowohl die Anregung der Faser mittels der LED gemessen, als auch die Dunkelzählrate, sodass die Messdaten um diese bereinigt werden können. Für sämtliche Messungen
+wird eine Integrationszeit von \qty{10000}{\micro\second} und einem Strom von \qty{20}{\milli\ampere} gewählt
+
+\subsubsection{Spektrometermessung}
+Zur Illustration der Auswirkungen von angeschaltetem Raumlicht wird eine Spektrometermessung bei eingeschaltetem und eine bei ausgeschaltetem Raumlicht durchgeführt.
+Dazu wird an dem Steuerungscomputer in einer GUI eine Spektrometermessung
+gestartet. Die Intensität der Messungen wird für die beiden Messreihen gegenüber der Wellenlänge aufgetragen. Außerdem wird in einem weiteren Schritt die 
+Dunkelzählrate abgezogen und das Ergebnis erneut graphisch dargestellt.
+
+\subsubsection{Radialsymmetrie}
+Die Intensität des aus der Faser austretenden Lichts folgt einer Radialsymmetrie, welche in dieser Messung verifiziert werden soll. Dazu wird für eine feste Position
+der LED auf der Faser das Spektrometer entlang der horizontalen und vertialen Achse verfahren. An dem Computer wird ein Programm aufgerufen, mit dem der aufzufahrende 
+Bereich sowie die Schrittweite eingestellt werden kann. Der horizontale Winkelbereich soll von \qtyrange{-18}{30}{\degree} und der vertikale von \qtyrange{-6}{35}{\degree}
+verlaufen.
+
+\subsubsection{Simulation}
+Neben den aufzunehmenden Messdaten werden ebenfalls Simulationsdaten analysiert. Dabei enthalten die Daten Informationen über die Anregungsorte der Faser, den Austrittsort
+am Faserende, den Erzeugungsort des Photons mit dazugehörigem Impuls und Wellenlänge, die Anzahl der Reflexionen an der Core-Cladding und Cladding-Cladding Grenzfläche, die
+Anzahl der Raleighstreuungen, sowie die zurückgelegten Wegstrecken in den verschiedenen Medien. \\
+Zunächst werden unphysikalische Simulationseffekte bereinigt, indem alle Photonen, deren Austrittsort außerhalb des Faserradius liegt, entfernt werden. Außerdem 
+werden alle Photonen, die Raleighstreuungen durchgeführt haben, ebenfalls entfernt. Der Datensatz wird anschließend in Kern- und Mantelphotonen aufgeteilt. Der Winkel~$\theta$
+des Photons zur x-Achse wird berechnet und als neue Variable eingeführt. Die Intensität der verschiedenen Winkel~$\theta$ wird in einem Histogramm sowohl für die Kern- als auch 
+für die Mantelphotonen aufgetragen. Der maximale Winkel unter dem noch Totalreflexion auftreten kann wird berechnet und ebenfalls im Histogramm eingezeichnet. \\
+In einem nächsten Schritt wird der minimale Abstand der Kern- und Mantelphotonen zur Fasermitte berechnet und in einem zweidimensionalen Histogramm in Abhängigkeit zum Winkel~$\theta$
+gesetzt. \\
+Als nächstes wird die Intensität für verschiedene Winkel in Abhängigkeit zum Anregungsort auf der x-Achse bestimmt und abermals graphisch dargestellt. Mithilfe eines
+exponentiellen Fits kann der Absorbtionskoeffizient der szintillierenden Fasern bestimmt werden.
+
+\subsubsection{Intensitätsmessung}
+In einem weiteren Schritt wird die x-Abhängige Intensität bestimmt. Dazu werden entlang der x-Achse 20 verschiedene Positionen der Faser angeregt und für jede dieser
+Positionen der horizontale oder vertikale Winkel in zehn Schritten von \qtyrange{0}{40}{\degree} variiert. Diese Daten werden analog zu den Simulationsdaten ausgewerten und 
+mit diesen verglichen.
+
+\subsubsection{Winkelintensitätsmessung}
+Zur Bestimmung des Winkels, bei dem die Intensität am größten ist, wird für einen festen Anregungsort und festen vertikalen Winkel der horizontale Winkel feinschrittig von
+\qtyrange{0}{45}{\degree} verändert. Die Intensität wird gegen die Winkelverteilung histogrammiert und das Maximum dieser Verteilung bestimmt.
