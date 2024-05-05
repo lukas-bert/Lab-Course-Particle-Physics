@@ -49,7 +49,7 @@ angewendet, welche sich über die Austrittspositionen \texttt{y\_exit} und \text
 \end{figure}
 Als nächstes werden alle Photonen entfernt, die Rayleigh-Streuungen vollzogen haben. Der Datensatz wird in Kern- und Mantelphotonen (\texttt{length\_clad > 0}) aufgeteilt.
 Der Winkel $\Theta$ zur Fasermitte lässt sich anhand des Kosinus des normierten Impulses zur x-Achse bestimmen.
-Nach \autoref{!!!Theorie!!!} berechnet sich der maximale Winkel, bei welchem Totalreflexion auftreten kann für die Kern- und Mantelphotonen, die durch die Fasermitte verlaufen zu 
+Nach \autoref{eq:Snellius} berechnet sich der maximale Winkel, bei welchem Totalreflexion auftreten kann für die Kern- und Mantelphotonen, die durch die Fasermitte verlaufen zu 
 \begin{align*}
   \Theta_\text{max1} &= \symup{arccos}\left(\frac{n_2}{n_1}\right) = \qty{21.37}{\degree} \\
   \Theta_\text{max2} &= \symup{arccos}\left(\frac{n_3}{n_1}\right) = \qty{27.44}{\degree},
@@ -115,7 +115,7 @@ Es ergibt sich ein Durschnittswert des Absorptionskoeffizienten von $a_\text{avg
 Ein analoges Verfahren wird auf die Simulationsdaten angewendet, wobei hier die Winkel kontinuierlich verlaufen und deshalb in 100 Bins unterteilt werden. 
 Hier ergibt sich ein Mittelwert von  $a_\text{avg, theo} = \qty{1.9571e-4}{\per\milli\metre}$.
 Die Winkelabhängigkeit des Absorptionskoeffizienten kann \autoref{fig:absorptioncoefficient} entnommen werden. Die jeweiligen Fitparameter werden dabei gegen den Winkel aufgetragen.
-Ebenfalls ist die Theoriekurve des winkelabhängigen Absorptionskoeffizienten nach \autoref{!!!!Theorie!!!} eingezeichnet.
+Ebenfalls ist die Theoriekurve des winkelabhängigen Absorptionskoeffizienten nach \autoref{eq:absorption} eingezeichnet.
 \begin{figure}
   \centering
   \begin{subfigure}{.7\textwidth}
