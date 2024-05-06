@@ -1,8 +1,8 @@
-PWD /Users/tomtroska/Desktop/Praktikum/Praktikum.nosync/FP-Versuchsprotokolle
+PWD /Users/tomtroska/Desktop/Praktikum.nosync/Lab-Course-Particle-Physics
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/tomtroska/Desktop/Praktikum/Praktikum.nosync/FP-Versuchsprotokolle/header.tex
+INPUT /Users/tomtroska/Desktop/Praktikum.nosync/Lab-Course-Particle-Physics/header.tex
 OUTPUT header.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrartcl.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrartcl.cls

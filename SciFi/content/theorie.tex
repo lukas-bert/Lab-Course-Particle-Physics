@@ -3,17 +3,17 @@
 
 Spurdetektoren wie Szintillatoren werden in der experimentellen Physik dazu verwendet, die Bewegungsbahn und Energie
 von Teilchen zu untersuchen. Durch diese Informationen lassen sich Rückschlüsse auf die zugrundeliegenden Zerfälle und
-beteiligten Teilchen ziehen. In dieser Versuchsreihe wird eine Szintillierende Faser auf bestimmte Eigenschaften
-untersucht und schließlich durch die gewonnenen Erkenntnisse eine vorhandene Simulation von Szintillierender Fasern
+beteiligten Teilchen ziehen. In dieser Versuchsreihe wird eine szintillierende Faser auf bestimmte Eigenschaften
+untersucht und schließlich durch die gewonnenen Erkenntnisse eine vorhandene Simulation einer szintillierenden Faser
 der Realität angepasst.
 
 \section{Theorie}
 \label{sec:Theorie}
 
-Mithilfe Szintillierender Faser können Impuls und Position elektrisch geladener Teilchen ermittelt werden
+Mithilfe von szintillierender Fasern können Impuls und Position elektrisch geladener Teilchen ermittelt werden
 und somit beispielsweise die Masse bestimmt werden. Diese Methode wird seit 2019/2020 an dem LHCb-Experiment 
-verwendet, um mitunter CP-Verletzende Zerfälle zu erforschen. Die TU Dortmund ist an der Entwicklung 
-des SciFi (Scinitillating Fibers) Trackers stark involviert. Eine wichtige Eigenschaft des SciFi Trackers ist 
+verwendet, um mitunter CP-verletzende Zerfälle zu erforschen. Die TU Dortmund ist an der Entwicklung 
+des SciFi (Scinitillating Fiber) Trackers stark involviert. Eine wichtige Eigenschaft des SciFi Trackers ist 
 seine Auflösung, welche besser als $\qty{100}{\micro\metre}$\cite{SciFi_Versuch} ist.
 
 \subsection{Anordnung und Aufbau}
@@ -22,7 +22,8 @@ Die einzelnen Szintillator Fasern haben einen Durchschnitt von $\qty{250}{\micro
 $\qty{220}{\micro\metre}$ dicken Kern aus Polystyrol und zwei Ummantelungen mit einer Dicke von $\qty{7.5}{\micro\metre}$
 zusammensetzt. Die Fasern werden zu mehreren Fasermatten zusammengefügt, wobei ein hexagonales Muster
 verwendet wird, um möglichst wenig leere Zwischenräume zu erzeugen und die Raumauflösung zu maximieren. Die einzelnen Faser Lagen
-werden mit Epoxy-Kleber zusammengehalten. Eine schematische Darstellung dieser Anordnung ist in \autoref{pic:Anordnung_Matte} zu sehen.\\
+werden mit Epoxy-Kleber zusammengehalten. Eine schematische Darstellung dieser Anordnung ist in \autoref{pic:Anordnung_Matte} zu sehen.
+
 \begin{figure}
     \centering
     \includegraphics[width = .8\textwidth]{content/pics/Anordnung.png}
@@ -59,7 +60,8 @@ Da lediglich $3 \, \%$ der angeregten Elektronen in den Zustand $S_{00}$ relaxie
 emittieren, wird dem Polystyrol der Farbstoff p-Terphenyl hinzugefügt. Durch diesen Farbstoff verkürzt sich die Zerfallsdauer
 von $\qty{308}{\nano\second}$ auf wenige Nanosekunden. Hierdurch wird die erwünschte Relaxation nicht mehr durch 
 schneller ablaufende strahlungsfreie Zerfälle dominiert. Die Energieniveaus der $\pi$-Elektronen ist schematisch in 
-\autoref{pic:Energieniveaus} dargestellt.\\
+\autoref{pic:Energieniveaus} dargestellt.
+
 \begin{figure}
     \centering
     \includegraphics[width = .8\textwidth]{content/pics/Energieniveaus.png}
@@ -86,11 +88,11 @@ tritt hierbei ab einem Grenzwinkel auf, welcher durch das Snelliussche Brechungs
 \begin{align}
     \label{eq:Snellius}
     \frac{\sin{\delta_2}}{\sin{\delta_1}} &= \frac{n_1}{n_2} \, , \, \delta_2 = \frac{\pi}{2} \\
-    \Rightarrow \sin{\delta_g} &= \frac{n_2}{n_1},
+    \Rightarrow \sin{\delta_{\text{g}}} &= \frac{n_2}{n_1},
 \end{align}
 wobei $n_1$ der Brechungsindex des Mediums der einlaufenden Welle ist und $n_2$ der des Mediums der auslaufenden
 Welle. $\delta_1$ ist der Winkel der einlaufenden Welle zum Lot auf der Grenzfläche, $\delta_2$ der Winkel der auslaufenden
-Welle zum Lot und $\delta_g$ der Grenzwinkel. Die gegebene Situation ist schematisch in \autoref{pic:Snellius} dargestellt.\\
+Welle zum Lot und $\delta_{\text{g}}$ der Grenzwinkel. Die gegebene Situation ist schematisch in \autoref{pic:Snellius} dargestellt.\\
 \begin{figure}
     \centering
     \includegraphics[width = .5\textwidth]{content/pics/Snellius.png}
@@ -103,16 +105,16 @@ der Faser $N$ lässt sich
 \begin{align}
     \label{eq:rel}
     L &= \frac{x}{\cos{\Theta}}\\
-    N &= \frac{x \tan{\Theta}}{2 \sqrt{r^2_{Kern} - r^2_{min}}}
+    N &= \frac{x \tan{\Theta}}{2 \sqrt{r^2_{\text{Kern}} - r^2_{\text{min}}}} \label{eq:N}
 \end{align}
-bestimmen. Hier ist $\Theta$ der Winkel zur Fasermittelachse, $r_{Kern}$ der Radius des p-Terphenyl Kerns und $r_{min}$ der kleinste
+bestimmen. Hier ist $\Theta$ der Winkel zur Fasermittelachse, $r_{\text{Kern}}$ der Radius des p-Terphenyl Kerns und $r_{\text{min}}$ der kleinste
 Abstand der Photonen zur Mittelachse der Faser. $r_{min}$ kann nicht experimentell ermittelt werden. Mithilfe einer Simulation kann allerdings
 ein mittlerer Wert ermittelt werden.\\
 Je größer der kleinste Abstand des Photons zu der Mittelachse ist, desto eher bewegt sich dieses auf einer Kreisbahn, was zur Konsequenz hat,
-dass solche Photonen auch noch über dem ermittelten Grenzwert Totalreflexionen ausführen können. Wenn man solche Bahnen mit $r_{min} \neq 0$ berücksichtigt,
+dass solche Photonen auch noch über dem ermittelten Grenzwert Totalreflexionen ausführen können. Wenn man solche Bahnen mit $r_{\text{min}} \neq 0$ berücksichtigt,
 ergibt sich die Gleichung
 \begin{equation}
-    \Theta_{refl} = \arcsin{\left(\sqrt{1 - \frac{r^2_{min}}{r^2_{Kern}}} \sin{\Theta}\right)}.
+    \Theta_{\text{refl}} = \arcsin{\left(\sqrt{1 - \frac{r^2_{\text{min}}}{r^2_{\text{Kern}}}} \sin{\Theta}\right)}.
 \end{equation}
 
 \subsubsection{Verlusteffekte}
@@ -125,31 +127,31 @@ des Wellenlängenschiebers durch eine Abschwächung der Intensität des Signals 
 mit einem Absorptionskoeffizienten $a$ darstellen. Für die Intensität der Photonen gibt es eine exponentielle Abhängigkeit
 zum Absorptionskoeffizienten, welche durch
 \begin{equation}
-    I(x) = I_0 \exp{-\frac{L}{\lambda}}
+    I(x) = I_0 \exp\left(-\frac{L}{\lambda}\right)
 \end{equation}
 gegeben ist. $\lambda$ ist die Abschwächlänge und wird durch das Inverse des Absorptionskoeffizienten berechnet. Bei den verwendeten Fasern
 liegt diese bei etwa $\qty{3.5}{\metre}$ \cite{SciFi_Versuch}. Diese Verlustmechanismen treten sowohl bei der Propagation durch das Kernmaterial,
-als auch bei der Reflexionen an der Ummantelung auf. Da diese zwei Fälle unterschiedliche Winkelabhängigkeiten besitzen, kann man sie
-getrennt betrachten. Die Verluste im Kernmaterial sind gegeben durch
+als auch bei der Reflexionen an der Ummantelung auf. Da diese zwei Fälle unterschiedliche Winkelabhängigkeiten besitzen, können sie
+getrennt betrachtet werden. Die Verluste im Kernmaterial sind gegeben durch
 \begin{equation}
-    A_{Kern}(x, \Theta) = \exp{\left(- \frac{L(x,\Theta)}{\lambda}\right)}
+    A_{\text{Kern}}(x, \Theta) = \exp{\left(- \frac{L(x,\Theta)}{\lambda}\right)}
 \end{equation}
 und die Reflexionsverluste an der Grenzfläche zur Ummantelung durch
 \begin{equation}
-    A_{refl}(x, \Theta) = \exp{\left(N(x,\Theta) \ln{(1-\epsilon)}\right)} \approx \exp{\left( -N(x,\Theta) \epsilon \right)}.
+    A_{\text{refl}}(x, \Theta) = \exp{\left(N(x,\Theta) \ln{(1-\epsilon)}\right)} \approx \exp{\left( -N(x,\Theta) \epsilon \right)}.
 \end{equation}
 $\epsilon$ ist der Reflexionskoeffizient, welcher die Wahrscheinlichkeit angibt, dass ein Photon bei der Reflexion an der Ummantelung absorbiert wird.
-Somit ergibt sich durch Muliplikation der beiden Effekte und Verwendung der ausdrücke für $L$ und $N$ (\autoref{eq:rel} und 4) die Totale Intensität nach
+Somit ergibt sich durch Muliplikation der beiden Effekte und Verwendung der ausdrücke für $L$ und $N$ (\autoref{eq:rel} und \ref{eq:N}) die totale Intensität nach
 \begin{equation}
     I(x,\Theta) = I_0  \exp{\left( - \frac{L(x,\Theta)}{\lambda}-N(x,\Theta) \epsilon \right)} = I_0  \exp{\left(-x \left( \frac{1}{\lambda\cos{\Theta}}+\frac{ \tan{\Theta}\epsilon}{2 \sqrt{r^2_{Kern} - r^2_{min}}} \right) \right)}.
 \end{equation}
 Es kann schließlich eine effektive Abschwächung definiert werden als
 \begin{equation}
     \label{eq:absorption}
-    a_{eff} = \frac{a_0}{\cos{\Theta}} + \frac{\epsilon \tan{\Theta}}{2 \sqrt{r^2_{Kern} - r^2_{min}}}.
+    a_{\text{eff}} = \frac{a_0}{\cos{\Theta}} + \frac{\epsilon \tan{\Theta}}{2 \sqrt{r^2_{\text{Kern}} - r^2_{\text{min}}}}.
 \end{equation}
-Bei einem Winkel von $\Theta$ verschwinden wie zu erwarten jegliche Reflexionsverluste. Daher können die Verluste innerhalb des Kerns
-isoliert ohne Einfluss der Reflexionsverluste untersucht werden.
+Bei einem Winkel von $\Theta$ verschwinden, wie zu erwarten, jegliche Reflexionsverluste. Daher können die Verluste innerhalb des Kerns
+isoliert und ohne Einfluss der Reflexionsverluste untersucht werden.
 
 \subsection{Silizium Photomultiplier}
 
@@ -185,13 +187,13 @@ detektierten und tatsächlich auftreffenden Photonen an. Die Wellenlängenabhän
 \end{figure}
 
 Wichtig ist zudem die Dunkelstromrate, welche die ausgelösten Signale ohne tatsächlich eintreffende Photonen beschreibt. Diese entstehen durch
-thermische Photonen und ist dadurch stark temperaturabhängig. Der SciFi Tracker wird daher auf $-40 \, ° \mathrm{C}$ abgekühlt.\\
-Um eine Wellenlängenabhängige Messung zu erhalten müssen winkelabhängige Messungen mit einem Spektrometer durchgeführt werden, welches Wellenlängen auflösen kann.
+thermische Photonen und ist dadurch stark temperaturabhängig. Die Silizium Photomultiplier werden daher auf $-40 \, ° \mathrm{C}$ abgekühlt.\\
+Um eine wellenlängenabhängige Messung zu erhalten, müssen winkelabhängige Messungen mit einem Spektrometer durchgeführt werden, welches Wellenlängen auflösen kann.
 
 \subsection{Simulation der Fasern}
 
 Mithilfe von Monte-Carlo Simulationen können simulierte Photonen durch einen simulierten Detektor geschickt werden und dadurch Daten erhalten
-werden, ohne tatsächliche echte Messungen durchführen zu müssen. Die hier verwendeten Simulationsdaten sind Simulationen einzelner Szintillierender
+werden, ohne tatsächliche, echte Messungen durchführen zu müssen. Die hier verwendeten Simulationsdaten sind Simulationen einzelner szintillierender
 Fasern und wurden in GEANT4 erstellt. Es wurden einzelne Photonen simuliert und die verschiedenen theoretischen Verlustmechanismen berücksichtigt,
 um möglichst realitätsnahe Ergebnisse zu erhalten. Die verwendete Simulationsdaten bestehen aus 50 Fasern mit je 24 Anregungspunkten. Diese
 Anregungspunkte sind jeweils $\qty{100}{\milli\metre}$ voneinander entfernt. Die erzeugten simulierten Messdaten können schließlich mit echten 
