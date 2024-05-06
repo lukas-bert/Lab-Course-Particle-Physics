@@ -45,8 +45,8 @@ der Fasermatten-Lagen ist in \autoref{pic:Lagen_Anordnung} gezeigt.
 
 \subsection{Funktionsweise}
 
-Die Fasern bestehen in ihrem Kern aus Polystyrol. Polystyrol ist ein anorganischer Szintillator, welcher bei dem 
-Durchflug geladener Teilchen Photonensignale erzeugt. Bei anorganischen Szintillatoren werden diese Signale durch
+Die Fasern bestehen in ihrem Kern aus Polystyrol. Polystyrol ist ein organischer Szintillator, welcher bei dem 
+Durchflug geladener Teilchen Photonensignale erzeugt. Bei organischen Szintillatoren werden diese Signale durch
 molekulare Vorgänge produziert. Hierbei zeigt sich bei längerer Bestrahlung eine Strukturänderung und ein Leistungsabfall des
 Detektors, was durch Alterungserscheinungen hervorgerufen wird. Anorganische Szintillatoren zeigen keine solche Erscheinungen,
 sind aber aus Kostengründen für ein so großen Detektor wie der LHCb Detektor ungeeignet.\\
@@ -123,11 +123,11 @@ Bei der Propagation von Photonen durch Materie können mehrere Effekte auftreten
 Einer dieser Effekte ist die Rayleigh-Streuung, bei der elektromagnetische Strahlung an einem Teilchen gestreut wird, wenn dessen Wellenlänge
 kleiner ist als die Wellenlänge des Photons. Durch diese Ablenkung kann es dadurch kommen, dass Photonen nicht länger den richtigen Winkel zu den
 Grenzflächen haben, um Totalreflexionen ausführen zu können. Weiterhin kann es durch Anregung von Molekülschwingungen oder Selbstabsorption
-des Wellenlängenschiebers durch eine Abschwächung der Intensität des Signals kommen. Die Abschwächung der Intensität durch diese Mechanismen lässt sich
+des Wellenlängenschiebers zu einer Abschwächung der Intensität des Signals kommen. Die Abschwächung der Intensität durch diese Mechanismen lässt sich
 mit einem Absorptionskoeffizienten $a$ darstellen. Für die Intensität der Photonen gibt es eine exponentielle Abhängigkeit
 zum Absorptionskoeffizienten, welche durch
 \begin{equation}
-    I(x) = I_0 \exp\left(-\frac{L}{\lambda}\right)
+    I(x) = I_0 \exp\left(-\frac{x}{\lambda}\right)
 \end{equation}
 gegeben ist. $\lambda$ ist die Abschwächlänge und wird durch das Inverse des Absorptionskoeffizienten berechnet. Bei den verwendeten Fasern
 liegt diese bei etwa $\qty{3.5}{\metre}$ \cite{SciFi_Versuch}. Diese Verlustmechanismen treten sowohl bei der Propagation durch das Kernmaterial,
@@ -186,7 +186,7 @@ detektierten und tatsächlich auftreffenden Photonen an. Die Wellenlängenabhän
     \label{pic:PDE}
 \end{figure}
 
-Wichtig ist zudem die Dunkelstromrate, welche die ausgelösten Signale ohne tatsächlich eintreffende Photonen beschreibt. Diese entstehen durch
+Wichtig ist zudem die Dunkelstromrate, welche die ausgelösten Signale ohne tatsächlich eintreffende Photonen beschreibt. Diese entsteht durch
 thermische Photonen und ist dadurch stark temperaturabhängig. Die Silizium Photomultiplier werden daher auf $-40 \, ° \mathrm{C}$ abgekühlt.\\
 Um eine wellenlängenabhängige Messung zu erhalten, müssen winkelabhängige Messungen mit einem Spektrometer durchgeführt werden, welches Wellenlängen auflösen kann.
 

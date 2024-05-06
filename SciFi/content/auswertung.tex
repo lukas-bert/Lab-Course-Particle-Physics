@@ -56,8 +56,9 @@ Nach \autoref{eq:Snellius} berechnet sich der maximale Winkel, bei welchem Total
   \Theta_\text{max2} &= \symup{arccos}\left(\frac{n_3}{n_1}\right) = \qty{27.44}{\degree},
 \end{align*}
 wobei $n_1 \approx \num{1.6}$, $n_2 \approx \num{1.49}$ und $n_3 \approx \num{1.42}$ die Brechungsindices des Kernmaterials und der Mantelmaterialien sind.
+Dabei gilt $\Theta = \qty{90}{\degree} - \delta$, weshalb der Kosinus anstelle des Sinus verwendet werden kann.
 Um am Ende der Faser aus dem Material austreten zu können, dürfen die Photonen am Übergang von Faser zu Luft keine Totalreflexion erfahren. 
-Die maximalen Winkel zur Faserachse ergeben sich für Photonen im Kern, in der ersten Ummantelung und in der äußeren Ummantelung zu 
+Die maximalen Winkel zur Faserachse ergeben sich für Photonen im Kern, in der ersten Ummantelung und in der äußeren Ummantelung mit rekursiven Einsetzen in \autoref{eq:Snellius} zu 
 \begin{align*}
   \Theta_\text{max3} &= \symup{arcsin}\left(\frac{1}{n_1}\right) = \qty{38.68}{\degree} \\
   \Theta_\text{max4} &= \symup{arccos}\left(\frac{n_2}{n_1}\symup{cos}\left(\symup{arcsin}\left(\frac{1}{n_2}\right)\right)\right) = \qty{46.34}{\degree} \\
