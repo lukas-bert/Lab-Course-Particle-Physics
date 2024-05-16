@@ -312,8 +312,6 @@ INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-INPUT ./header.aux
-INPUT ./header.aux
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
