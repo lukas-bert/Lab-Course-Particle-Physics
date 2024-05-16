@@ -1,4 +1,4 @@
-Je Cluster eine Zeile mit ADC Einträgen aller Kanäle mit Signal 
+#Je Cluster eine Zeile mit ADC Einträgen aller Kanäle mit Signal 
 93.08
 109.880440945
 64.4368503937	10.1428503937
