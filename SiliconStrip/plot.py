@@ -15,7 +15,7 @@ U_leak, I_leak = np.genfromtxt("content/data/leakage_current.txt", unpack = True
 fig, ax = plt.subplots()
 
 ax.plot(U_leak, I_leak, "x", label="Data")
-ax.vlines(80, ymin = 0.8, ymax=2, linestyles='dashed', colors='grey', label="Depletion voltage")
+ax.vlines(60, ymin = 0.8, ymax=2, linestyles='dashed', colors='grey', label="Depletion voltage")
 
 ax.set_xlabel(r"$U \mathbin{/} \unit{\volt}$")
 ax.set_ylabel(r"$I \mathbin{/} \unit{\micro\ampere}$")
@@ -362,7 +362,7 @@ plt.close()
 hitmap = np.genfromtxt("content/data/hitmap.txt", unpack=True)
 fig, ax = plt.subplots()
 
-ax.bar(np.linspace(1,128, 128), number_channels)
+ax.bar(np.linspace(1,128, 128), hitmap)
 
 ax.set_xlabel("Channel")
 ax.set_ylabel("Counts")

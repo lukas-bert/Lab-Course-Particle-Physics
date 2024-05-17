@@ -162,7 +162,7 @@ In this experiment, the charge deposition is given in counts of the analogue-to-
 on the basis of a callibration measurement. The callibration generates a specified amount of electron-hole pairs which are then converted into ADC counts.
 To create one electron-hole pair in silicon, an energy of $\qty{3.6}{\eV}$ \cite{SiliconStrip} is required.
 
-When measuring, the ADC counts always include noise. In order to get the signal count, all unwanted effects have to be substracted.
+When measuring, the ADC counts always include noise. In order to get the signal count, all unwanted effects have to be subtracted.
 In total, the measured ADC counts for a signal $k$ at strip $i$ is given by 
 \begin{equation}
     \text{ADC}(i, k) = \text{P}(i, k) + \text{D}(i,k) + \text{Signal}(i, k) + \text{Noise}(i, k).
@@ -180,7 +180,7 @@ strips during an event and can be determined as
     \label{eq:common_noise}
 \end{equation}
 The common noise is gaussian distributed around 0.
-Finally, the noise of each strip can be calculated using the root-mean-square of the ADC counts after substracting pedestals and common noise:
+Finally, the noise of each strip can be calculated using the root-mean-square of the ADC counts after subtracted pedestals and common noise:
 \begin{equation}
     \text{Noise}(i) = \sqrt{\frac{1}{N-1} \sum^{N}_{k = 1} (\text{ADC}(i,k) -\text{P}(i) - \text{D}(k))^2}.
     \label{eq:noise}
