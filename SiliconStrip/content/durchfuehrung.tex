@@ -15,7 +15,7 @@ with radioactive material. Triggered signals in the sensor are
 amplified in the BEETLE chip and converted into a voltage signal, which can later be interpreted by the control unit.
 The signal is kept in a pipeline by the BEETLE chip, until there is an incoming triggering signal from the control unit. Only then will the recorded signal
 be passed on to the control unit and computer. If there is no trigger signal, the data is discarded.\\
-The depletion voltage of the used semiconductor is usually about $\qty{60}{} -  \qty{70}{\volt}$. It can be controlled and adjusted
+The depletion voltage of the used semiconductor is usually about $\qty{60}{} -  \qty{70}{\volt}$\cite{SiliconStrip}. It can be controlled and adjusted
 via a knob on the control unit. Knowing the exact depletion voltage will be one of the first measuring tasks, such that the following
 tasks can be carried out using the highest efficiency possible. The detecor unit can be seen in \autoref{fig:detector_unit}.
 \begin{figure}
@@ -61,13 +61,13 @@ The used laser is supplied with energy and controlled via the control unit. A fi
 the control unit to the detector unit. The platform has to be in the "L" position for those measurements. It has a 
 wavelength of $\qty{980}{\nano\metre}$, a diameter of $\qty{20}{\micro\metre}$ and a peak power of $\qty{0.6}{\milli\watt}$.\\
 The horizontal and vertical position of the laser output into the sensor can be adjusted with micrometer screws with an accuracy
-of $\qty{10}{\micro\metre}$.
+of $\qty{10}{\micro\metre}$\cite{SiliconStrip}.
 
 \subsection{Control unit}
 
 The control unit is used for controlling the laser and the bias voltage of the sensor. It also interprets the taken
 data into ADC Counts which can be recorded with the computer. The leakage current is measured with an amperemeter of
-the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\metre}$.\\
+the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\metre}$\cite{SiliconStrip}.\\
 As explained in \autoref{ch:ped}, a lot of noise by the source measurement is also recorded and converted into ADC counts by the detector and control unit.
 To distinguish between background and relevant data, a signal-to-noise cut is applied to the data. This signal-to-noise ratio 
 can be chosen freely and is set as 5 here. If the signal is five times higher than the noise, it is considered for the analysis.
