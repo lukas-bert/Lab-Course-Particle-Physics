@@ -1,12 +1,12 @@
 \section{Discussion}
 \label{sec:Discussion}
-As mentioned in chapter \ref{sec:Analysis}, the experimental setup malfunctioned during data taking. Only
+As mentioned in \autoref{sec:Analysis}, the experimental setup malfunctioned during data taking. Only
 the data for the current-voltage characteristic was taken. The data for the other tasks was provided. However,
 since the detector unit was malfunctioning after, it is questionable if the data taken for the first task is 
 fully trustworthy. Also, since the other data was provided from another experimental group, it cannot be
 confirmed, that the data was taken correctly. So all of the results are to be taken with caution.\\
 For the current-voltage characteristic, a depletion voltage of $\qty{60}{\volt}$ was determined. According to the
-informational sheet given, the depletion voltage should be somewhere around $\qty{60}{}$ - $\qty{70}{\volt}$\cite{SiliconStrip}.
+informational sheet given, the depletion voltage should be somewhere around $\qty{60}{}$ - $\qty{70}{\volt}$~\cite{SiliconStrip}.
 The depletion voltage cannot be obtained with full confidence, since the obtained current-voltage characteristic
 seems inaccurate. A clear kink should be visible in the obtained data. However, only a slight curvature is visible.
 This might as well result from the apparatus malfunctioning and giving inaccurate data.\\
@@ -24,12 +24,13 @@ The charge collection efficiency was calculated for the laser and for the source
 penetration depth resulting from a fit of the data to \autoref{eq:CCE} is determined as $\qty{980}{\nano\metre}$
 Literature values for the penetration depth of a laser with a wavelength of $\qty{980}{\nano\metre}$ was not provided
 by the instructions and also not found online. However, values for a wavelength of $\qty{960}{\nano\metre}$ and $\qty{1073}{\nano\metre}$
-were provided for which the penetration depth is $\qty{74}{\micro\metre}$ and $\qty{380}{\micro\metre}$ respectively\cite{SiliconStrip}. Therefore,
+were provided for which the penetration depth is $\qty{74}{\micro\metre}$ and $\qty{380}{\micro\metre}$ respectively~\cite{SiliconStrip}. Therefore,
 the results are compliant with the given literature value. As for the source scan, the resulting plot is similiar 
 to the CCE plot for the laser measurement. As expected, the counts become constant as the depletion voltage is reached.
 The source measurement reaffirms the laser measurement.\\
 For the large source scan, hitmap of the distribution of the events per channel shows has a gaussian shape most likely centered around the location of the source.
 The calculated mean energy of $E_{\mathrm{mean}} = \qty{135.94}{\kilo\electronvolt}$ corresponds to an energy depostion of \qty{4.53}{\mega\electronvolt\per\centi\metre}.
-Comparing this value to the theoretical value for pure silicon of \qty{3.88}{\mega\electronvolt\per\centi\metre}, a deviation of \qty{16.8}{\percent} arises.
+Comparing this value to the theoretical value for pure silicon of \qty{3.88}{\mega\electronvolt\per\centi\metre} (see \ref{sec:therory_interactions}), a deviation of \qty{16.8}{\percent} arises.
 This could be explained with the doping of the silicon of the sensor, leading to a higher energy deposition. Additionally, the absorption of electrons in other 
-matter sitting between the source and the sensor would need to be considered for more precise results.
+matter sitting between the source and the sensor would need to be considered for more precise results. The fit function used to calculate the energy is also only 
+valid for low ADC counts and can therefore skew the results.

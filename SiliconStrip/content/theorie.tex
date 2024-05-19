@@ -34,7 +34,7 @@ like gallium arsenide or \textit{organic semiconductors} which consist of carbon
 The intrinsic charge carrier density for pure (= intrinsic) semiconductors is often too small to effectively use them. Therefore, atoms with a different amount of 
 valence electrons are introduced
 into the crystal structure of a semiconductor to increase its conductivity. This process is called doping. Silicon has 4 valence electrons and forms a diamond lattice structure. 
-Silicon doped with pantavalent atoms, such as arsenic, is called a \textit{n-type} semiconductor. The fifth valence electron is not needed in the crystal bond and acts as a free 
+Silicon doped with pentavalent atoms, such as arsenic, is called a \textit{n-type} semiconductor. The fifth valence electron is not needed in the crystal bond and acts as a free 
 charge carrier on a new level in the band diagram right below the conduction band which is called \textit{donator level}. This effectively reduces the band gap. 
 Electrons in the donator level can easily be excited to the conduction band which inreases conductivity. \\
 Alternatively, trivalent atoms, like boron, can be used. The semiconductor is then called \textit{p-type}. The missing electron in the bond can be seen as a hole, that can
@@ -95,12 +95,12 @@ is plotted against the bias voltage.
     The depletion voltage can be read from the plot as $\qty{60}{\volt}$.}
     \label{fig:leakage_current}
 \end{figure}
-As can be seen from the plot, the leakage current strongly increases, till the depletion voltage $U_\text{dep}$ is reached and then continues to increas linearly.
+As can be seen from the plot, the leakage current strongly increases, until the depletion voltage $U_\text{dep}$ is reached and then continues to increas linearly.
 From this measurement, the depletion voltage can be obtained.
 
 \subsection{Interaction of ionising radiation with matter}
 In this experiment, the EASy detector system is employed to measure ionising particles from a strontium-90 source. 
-Therefore it is important to understand the energy deposition of ionising particles in matter.
+Therefore, it is important to understand the energy deposition of ionising particles in matter.
 
 \subsubsection{The beta decay}
 In general, the beta decay proceeds over 
@@ -122,7 +122,7 @@ The decay chain of strontium-90 is
 \end{equation*}
 The strontium has a half-life of $\qty{28.78}{\year}$ while yttrium has a half-life of $\qty{59}{\day}$ and the zirconium is stable.
 Both \ce{^{90}{Sr}} and \ce{^{90}{Y}} decay via the $\beta^-$ decay. The maximum kinetic energy of the electron is $\qty{0.546}{\mega\eV}$ and $\qty{2.28}{\mega\eV}$ for 
-strontium and yttrium, respectively \cite{Leo1987}.
+strontium and yttrium, respectively~\cite{Leo1987}.
 For a simple 1-step decay chain, the activity (decays per time) is given by 
 \begin{equation*}
     A(t) = - \frac{\symup{d}N}{\symup{d}t} = \lambda N_0 \mathrm{e}^{-\lambda t},
@@ -132,6 +132,7 @@ For a decay chain, this is more complicated, but in the limit $T_{1/2, \ce{^{90}
 activity doubled.
 
 \subsubsection{Interactions of electrons in matter}
+\label{sec:therory_interactions}
 When traversing a material, the electrons interact with the nucleus and electrons of the atomic shell and deposit energy. Since the kinetic energy of the electrons in this experiment
 is not large enough, bremsstrahlung, inelastic collisions with the nuclei and Cherenkov radiation are not considered. The relevant effect here, is the ionisation of the atoms by 
 collisions of the incoming electrons with shell electrons. The average energy loss per distance of the electron is given by the modified Bethe-Bloch equation \cite{Leo1987}
@@ -160,7 +161,7 @@ in \autoref{fig:energy_deposition}.
 \subsection{Pedestals and Noise}
 \label{ch:ped}
 In this experiment, the charge deposition is given in counts of the analogue-to-digital converter (ADC counts) and therefore has to be converted to $\unit{\kilo\eV}$ 
-on the basis of a callibration measurement. The callibration generates a specified amount of electron-hole pairs which are then converted into ADC counts.
+on the basis of a calibration measurement. The calibration generates a specified amount of electron-hole pairs which are then converted into ADC counts.
 To create one electron-hole pair in silicon, an energy of $\qty{3.6}{\eV}$ \cite{SiliconStrip} is required.
 
 When measuring, the ADC counts always include noise. In order to get the signal count, all unwanted effects have to be subtracted.

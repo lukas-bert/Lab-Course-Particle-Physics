@@ -1,12 +1,12 @@
 \section{Analysis}
 \label{sec:Analysis}
 This section focuses on the analysis of the measured data. Because of a malfunctioning cable connection, many of the tasks could not be completed and for those
-that data could be taken, the trustworthiness can be questioned. The data for all of the tasks, except for the measurement of the current-voltage characterisic,
-was kindly provided by our supervisor.
+that data could be taken, the trustworthiness can be questioned. The data for all of the tasks, except for the measurement of the current-voltage characteristic,
+were kindly provided by our supervisor.
 
 \subsection{Current - voltage characteristic}
-\label{sec:current-voltage characterisic}
-In a first step, the sensor current $I$ is measured as a function of the applied bias voltage $U$. The resulting data are shown in \autoref{fig:U_dep}.
+\label{sec:current-voltage characteristic}
+In a first step, the sensor current $I$ is measured as a function of the applied bias voltage~$U$. The resulting data are shown in \autoref{fig:U_dep}.
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{build/leakage.pdf}
@@ -31,19 +31,19 @@ Taking the root-mean-square of the ADC counts subtracted of the pedestal and com
 the data are represented in \autoref{fig:noise}.
 \begin{figure}
     \centering
-    \begin{subfigure}{0.8\textwidth}
+    \begin{subfigure}{0.7\textwidth}
       \includegraphics[width = \textwidth]{build/pedestal.pdf}
       \caption{Pedestal $P(i,k)$.}
       \label{fig:pedestals}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.8\textwidth}
+    \begin{subfigure}{0.7\textwidth}
       \includegraphics[width = \textwidth]{common_mode_shift.pdf}
       \caption{Common mode shift $D(k)$.}
       \label{fig:common_noise}
     \end{subfigure}
     \vfill
-    \begin{subfigure}{0.8\textwidth}
+    \begin{subfigure}{0.7\textwidth}
         \includegraphics[width = \textwidth]{noise.pdf}
         \caption{Noise $N(i)$.}
         \label{fig:noise}
@@ -83,7 +83,14 @@ calibration run for a bias voltage of $U_{\mathrm{bias}}=\qty{0}{\volt}$ is exec
 The measurements of the five different channels are mostly in agreement with each other while the $U_{\mathrm{bias}}=\qty{0}{\volt}$ run shows slightly
 less ADC counts. \\
 In addition to these plots, the injected charge is also plotted against the measured ADC counts and fitted with a fourth-degree polynominal 
-function. This is performed in \autoref{fig:calib_polyfit}. With the help of the \texttt{python} extension \texttt{scipy}~\cite{scipy}, the parameters for
+function. This is performed in \autoref{fig:calib_polyfit}. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/calib_polyfit.pdf}
+    \caption{Plot of the injected charge and corresponding ADC counts. A forth degree polynominal fuction is fitted to the data.}
+    \label{fig:calib_polyfit}
+\end{figure}
+With the help of the \texttt{python} extension \texttt{scipy}~\cite{scipy}, the parameters for
 a polynominal of the form $f(x) = a + bx + cx^2 + dx^3 + ex^4$ are extracted as
 \begin{align*}
     a &= \qty{1.2(0.4)e3}{\per\raiseto{0}\elementarycharge} \\
@@ -94,7 +101,7 @@ a polynominal of the form $f(x) = a + bx + cx^2 + dx^3 + ex^4$ are extracted as
 \end{align*} 
 Later in \autoref{sec:large_q}, this function is used to convert the ADC counts to a corresponding energy.
 
-\subsection{Characterisics of the strip sensor}
+\subsection{Characteristics of the strip sensor}
 \label{sec:characteristics_strip_sensor}
 Among other variables, the pitch and the width of the strips are of high interest. Theses characteristics can be determined by exciting the sensor with a laser.
 Before theses measurements can be conducted, the delay between the laser signal and the chip readout needs to be optimized. For that reason, a laser synchronization
@@ -107,7 +114,7 @@ counts are maximized is evaluated as \qty{64}{\nano\second} and entered into the
     \label{fig:laser_sync}
 \end{figure}
 
-With the laser synchronized to the chip readout, the actual measurements of the strip sensor characterisics can begin. Therefore, the laser is moved 
+With the laser synchronized to the chip readout, the actual measurements of the strip sensor characteristics can begin. Therefore, the laser is moved 
 in \qty{10}{\micro\metre} intervals along the sensor. The ADC counts are measured and represented graphically in \autoref{fig:laser_scan}.
 \begin{figure}
     \centering
@@ -127,7 +134,7 @@ in \qty{10}{\micro\metre} intervals along the sensor. The ADC counts are measure
 \end{figure}
 
 It is clear that the laser is focused on the strips with the channels 83 and 84. The ADC counts of these channels are further considered for the determination of 
-the chips' characterisics (see \autoref{fig:laser_channel_83_84}). The pitch of the sensor can be measured by calculating the distance between the maxima of the ADC counts. The width of the strips follows
+the chips' characteristics (see \autoref{fig:laser_channel_83_84}). The pitch of the sensor can be measured by calculating the distance between the maxima of the ADC counts. The width of the strips follows
 from the width of the peaks. 
 \begin{figure}
     \centering
@@ -268,14 +275,3 @@ The mean value of the energy as well as the most probable value are read off as
     E_{\mathrm{mean}} &= \qty{135.94}{\kilo\electronvolt} \\
     E_{\mathrm{MPV}}  &= \qty{89}{\kilo\electronvolt}. \\
 \end{align*}
-
-% Optimal delay laser scan: 64.0
-% Laserscan shape adc: (128, 35)
-% Mean of plateau (CCE): 132.47836484615385
-% -----------------
-% Params CCEL
-% Parameter 0: 212+/-24 um
-% -----------------
-% ------ CCEQ ------
-% E_mean = 135.93623449798488 keV
-% E_MPV = 89 keV

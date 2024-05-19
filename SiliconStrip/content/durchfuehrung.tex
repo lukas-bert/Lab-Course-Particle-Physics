@@ -4,7 +4,7 @@ For the experimental setup, the Alibava EASy detector system is used. It consist
 and a computer to control the different measuring modes and for interpreting the taken data. This is done with the
 Alibava Graphical User Interface (GUI). The detector and control unit are connected via a ribbon cable, while the 
 control unit and the computer are connected via USB. In some measuring tasks, an additional optical fiber cable is
-used. In the source measurements, a radioactive source and a LEMO cable for the built-in diode is needed.
+used. In the source measurements, a radioactive source and a LEMO cable for the built-in diode are needed.
 
 \subsection{Detector unit}
 
@@ -15,13 +15,13 @@ with radioactive material. Triggered signals in the sensor are
 amplified in the BEETLE chip and converted into a voltage signal, which can later be interpreted by the control unit.
 The signal is kept in a pipeline by the BEETLE chip, until there is an incoming triggering signal from the control unit. Only then will the recorded signal
 be passed on to the control unit and computer. If there is no trigger signal, the data is discarded.\\
-The depletion voltage of the used semiconductor is usually about $\qty{60}{} -  \qty{70}{\volt}$\cite{SiliconStrip}. It can be controlled and adjusted
+The depletion voltage of the used semiconductor is usually about $\qty{60}{} -  \qty{70}{\volt}$~\cite{SiliconStrip}. It can be controlled and adjusted
 via a knob on the control unit. Knowing the exact depletion voltage will be one of the first measuring tasks, such that the following
 tasks can be carried out using the highest efficiency possible. The detecor unit can be seen in \autoref{fig:detector_unit}.
 \begin{figure}
     \centering
     \includegraphics[width = .8\textwidth]{content/pics/detector_unit.png}
-    \caption{The detector unit in "Q" position. Top view (left) and side view (right).\cite{SiliconStrip}}
+    \caption{The detector unit in "Q" position. Top view (left) and side view (right)~\cite{SiliconStrip}.}
     \label{fig:detector_unit}
 \end{figure}\\
 The used semiconductor sensor consists of a $\qty{300}{\micro\metre}$ thick n-doped silicon layer which is covered by metallisation
@@ -48,10 +48,10 @@ The electrons and holes in the n- and p-doped layer recombine if the applied bia
 bias voltage is applied, an electric field is created such that electrons and holes are seperated. A depletion zone
 is caused and gets bigger for higher applied bias voltage. The quality of the sensor can be defined by the charge
 collection efficiency (CCE). The higher the applied bias voltage, the bigger the depletion zone and the greater
-the CCE gets until a maximum is reached at $U_{dep}$. This is when the sensor is fully depleted. The CCE can be 
+the CCE gets until a maximum is reached at $U_{\mathrm{dep}}$. This is when the sensor is fully depleted. The CCE can be 
 calculated for the applied voltage as
 \begin{equation}
-    CCE(U) = \frac{1-\exp{(\frac{-d_c(U)}{a})}}{1-\exp{(\frac{-D}{a})}}.
+    \text{CCE}(U) = \frac{1-\exp{(\frac{-d_c(U)}{a})}}{1-\exp{(\frac{-D}{a})}}.
     \label{eq:CCE}
 \end{equation}
 $D$ is the thickness of the sensor, $d_c$ is the thickness of the depletion zone and $a$ is the mean penetration depth of
@@ -61,13 +61,13 @@ The used laser is supplied with energy and controlled via the control unit. A fi
 the control unit to the detector unit. The platform has to be in the "L" position for those measurements. It has a 
 wavelength of $\qty{980}{\nano\metre}$, a diameter of $\qty{20}{\micro\metre}$ and a peak power of $\qty{0.6}{\milli\watt}$.\\
 The horizontal and vertical position of the laser output into the sensor can be adjusted with micrometer screws with an accuracy
-of $\qty{10}{\micro\metre}$\cite{SiliconStrip}.
+of $\qty{10}{\micro\metre}$~\cite{SiliconStrip}.
 
 \subsection{Control unit}
 
 The control unit is used for controlling the laser and the bias voltage of the sensor. It also interprets the taken
 data into ADC Counts which can be recorded with the computer. The leakage current is measured with an amperemeter of
-the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\metre}$\cite{SiliconStrip}.\\
+the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\metre}$~\cite{SiliconStrip}.\\
 As explained in \autoref{ch:ped}, a lot of noise by the source measurement is also recorded and converted into ADC counts by the detector and control unit.
 To distinguish between background and relevant data, a signal-to-noise cut is applied to the data. This signal-to-noise ratio 
 can be chosen freely and is set as 5 here. If the signal is five times higher than the noise, it is considered for the analysis.
@@ -82,13 +82,13 @@ The measuring tasks in \ref{measure:4} and \ref{measure:5} use the laser. For th
 needs to be plugged in into the detector unit and the control unit and the pedestal needs to be in the "L" position.\\
 For the measuremets in \ref{measure:5} and \ref{measure:6} the source is used. For this, the detector unit needs
 to be put into the box with the source. The detection unit is additionally covered with lead bricks, to prevent radiation to come 
-out of the experimental setup. It is still adviced not to directly stand over or under the source, since there is no 
+out of the experimental setup. It is still advised not to directly stand over or under the source, since there is no 
 lead protection. The pedestal needs to be put into the "Q" position and an additional LEMO cable must be plugged into
 the diode trigger of the detector unit and into the control unit. The carbon plate with the source needs to be directly on top
 of the sensor. The used setup for the source measurements and the process is shown in \autoref{fig:source_mes}. \\
 For the 
 source measurements, an additional diode is used, which is placed a few millimetres below the sensor. It ensures, that only
-those electrons are regarded, that also triggered a signal in the diode. Only those electrons with enough energy, can excite
+those electrons are regarded, that also triggered a signal in the diode. Only those electrons with enough energy can excite
 electron-hole pairs in the sensor and additionally the diode. If the diode triggers a signal, the BEETLE chip switches off
 and the signal gets transfered to the control unit.
 \begin{figure}
@@ -118,7 +118,7 @@ common mode represented graphically.
 First, the optimal delay has to be determined. For this, the control unit sends a defined delayed electron pulse to the BEETLE chip,
 via the ribbon cable. This is needed to convert the recorded ADC counts into charge and to interpret the data in the following
 tasks. The BEETLE chip transmits the measured ADC counts to the control unit. The ADC counts are then plotted against
-the used charge. Like this, a Calibration curve is obtained which can be used to convert the ADC counts of the following
+the used charge. Like this, a calibration curve is obtained which can be used to convert the ADC counts of the following
 tasks into charge.\\
 To do this, first, a "Delay Measurement" is started. This measures the amount of data obtained for different delays between
 the signal and the readout of the signal. The peak of the obtained data series is the best possible delay and is used 
