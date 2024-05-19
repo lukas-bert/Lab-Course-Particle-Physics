@@ -31,7 +31,7 @@ no current can flow directly between them. This enables a localisation of the in
 channel got excited. The strips are then covered by a silicon oxide layer to prevent leakage current to be detected in the readout electronics.
 A top-down view and a detailed schematic of the sensor is shown in \autoref{fig:sensor}. The guard ring blocks charge to flow uncontrolled beyond the sensor
 and the bias ring supplies the semiconductor with a bias voltage to enlarge the depletion zone. Due to the p-implants
-being embedded in the n-base, the semiconductor is called an p-in-n sensor.
+being embedded in the n-base, the semiconductor is called a p-in-n sensor.
 \begin{figure}
     \centering
     \begin{subfigure}{0.45\textwidth}
@@ -67,10 +67,10 @@ of $\qty{10}{\micro\metre}$~\cite{SiliconStrip}.
 
 The control unit is used for controlling the laser and the bias voltage of the sensor. It also interprets the taken
 data into ADC Counts which can be recorded with the computer. The leakage current is measured with an amperemeter of
-the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\metre}$~\cite{SiliconStrip}.\\
+the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\ampere}$~\cite{SiliconStrip}.\\
 As explained in \autoref{ch:ped}, a lot of noise by the source measurement is also recorded and converted into ADC counts by the detector and control unit.
 To distinguish between background and relevant data, a signal-to-noise cut is applied to the data. This signal-to-noise ratio 
-can be chosen freely and is set as 5 here. If the signal is five times higher than the noise, it is considered for the analysis.
+can be chosen freely and is set as 5 standard deviations here. If the signal is five standard deviations higher than the noise, it is considered for the analysis.
 Otherwise it is discarded.\\
 Another source of noise is also the triggering of multiple sensors by only one real signal. This happens, when
 a particle passes near the edge of a strip. The created voltage can cause other strips to fire as well. Another effect
@@ -79,8 +79,8 @@ would be crosstalk, where a particle crosses perpendicular to the surface and th
 \subsection{Measuring tasks}
 
 The measuring tasks in \ref{measure:4} and \ref{measure:5} use the laser. For these tasks, the fibre optic cable
-needs to be plugged in into the detector unit and the control unit and the pedestal needs to be in the "L" position.\\
-For the measuremets in \ref{measure:5} and \ref{measure:6} the source is used. For this, the detector unit needs
+needs to be plugged into the detector unit and the detector needs to be in the "L" position.\\
+For the measuremets in \ref{measure:5} and \ref{measure:6} the source is used. For this purpose, the detector unit needs
 to be put into the box with the source. The detection unit is additionally covered with lead bricks, to prevent radiation to come 
 out of the experimental setup. It is still advised not to directly stand over or under the source, since there is no 
 lead protection. The pedestal needs to be put into the "Q" position and an additional LEMO cable must be plugged into
@@ -105,7 +105,7 @@ The current-voltage characteristic is measured by adjusting the bias voltage in 
 the depletion voltage can be extracted. The bias voltage of $\qty{0}{\volt}$ must be carefully set from a higher voltage,
 since rotating the knob for the bias to the lowest possible voltage actually applies a voltage in forward direction which causes
 the semiconductor to conduct.\\
-Use a bias voltage at least $\qty{20}{\volt}$ higher than the estimated depletion voltage for the following measurements.
+A bias voltage at least $\qty{20}{\volt}$ higher than the estimated depletion voltage is to be applied for the following measurements.
 
 \subsubsection{Pedestals and noise}
 \label{measure:2}
@@ -150,6 +150,6 @@ of the bias voltage and the results compared to the laser measurement.
 \subsubsection{Large source scan}
 \label{measure:6}
 For the final measurement, the source is to be examined. For this, a RS Run for $\qty{1000000}{}$ events is to be performed.
-The data is to be presented graphically is a meaningful way and the number of events per channel should be displayed.
-The energy spectrum should be shown in ADC and $\qty{}{\kilo\electronvolt}$ as well. With that, the mean value of the 
+The data is to be presented graphically in a meaningful way and the number of events per channel should be displayed.
+The energy spectrum should be shown in ADC counts and $\unit{\kilo\electronvolt}$ as well. With that, the mean value of the 
 deposited energy and the MPV is to be determined and the result evaluated.

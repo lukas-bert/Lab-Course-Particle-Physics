@@ -22,7 +22,7 @@ is called bandgap. Depending on the bandgap, materials are categorised as metals
     \label{fig:bandgap}
 \end{figure}
 Metals are characterised by overlapping conduction and valence bands and have no bandgap, therefore they are conductive. 
-For insulators, the band gap is around $\qty{4}{\eV}$ or higher, which is why they are not conductive because the energy from thermal excitation 
+For insulators, the bandgap is around $\qty{4}{\eV}$ or higher, which is why they are not conductive because the energy from thermal excitation 
 is much smaller ($\approx\qty{30}{\milli\eV}$). Semiconductors typically have a bandgap of 1 to $\qty{5}{\eV}$ and are also not conductive at 
 $T = \qty{0}{\kelvin}$. However, at roomtemperature electrons can be excited to the conduction band. The \enquote{hole} that they leave behind can be viewed as a quasiparticle that 
 carries a positive charge and has an effective mass. Silicon, which is used for the detector in this experiment, has a bandgap of $\qty{1.107}{\eV}$ and an intrinsic charge 
@@ -35,7 +35,7 @@ The intrinsic charge carrier density for pure (= intrinsic) semiconductors is of
 valence electrons are introduced
 into the crystal structure of a semiconductor to increase its conductivity. This process is called doping. Silicon has 4 valence electrons and forms a diamond lattice structure. 
 Silicon doped with pentavalent atoms, such as arsenic, is called a \textit{n-type} semiconductor. The fifth valence electron is not needed in the crystal bond and acts as a free 
-charge carrier on a new level in the band diagram right below the conduction band which is called \textit{donator level}. This effectively reduces the band gap. 
+charge carrier on a new level in the band diagram right below the conduction band which is called \textit{donator level}. This effectively reduces the bandgap. 
 Electrons in the donator level can easily be excited to the conduction band which inreases conductivity. \\
 Alternatively, trivalent atoms, like boron, can be used. The semiconductor is then called \textit{p-type}. The missing electron in the bond can be seen as a hole, that can
 move freely in the coulomb potential of the crystal lattice. A new level, called \textit{acceptor level}, arises in the band diagram right above the valence band.
@@ -54,7 +54,7 @@ n-side and holes from the p-side diffuse towards the respective other side and r
 The stationary doping atoms are now missing an electron or hole and cause a positive charge at the n-side and a negative charge at the p-side, resulting in an electric field.
 Through the electric field, the remaining charge carriers drift in the opposite direction. When equilibrium is reached between drift and diffusion, a zone around the pn-junction 
 with no charge carriers is created - the \textit{depletion zone}. The difference in the potential of the two sides is called diffusion voltage $U_D$.
-By applying an external electric field (bias voltage), this effect is either weakened (+ on p-side, - on n-side) and a light emitting diode is created, or the effect is amplified 
+By applying an external electric field (with bias voltage $U$), this effect is either weakened (+ on p-side, - on n-side) and a light emitting diode is created, or the effect is amplified 
 (+ on n-side, - on p-side) which increases the thickness of the depletion zone. This is the case for the detector operation of the diode. Electron-hole pairs created in the
 depletion zone (e.g. by a traversing particle) are drawn to the p- and n-side which generates a measurable current.
 The thickness of the depletion zone depends on the applied voltage and can be calculated as 
@@ -96,7 +96,7 @@ is plotted against the bias voltage.
     \label{fig:leakage_current}
 \end{figure}
 As can be seen from the plot, the leakage current strongly increases, until the depletion voltage $U_\text{dep}$ is reached and then continues to increas linearly.
-From this measurement, the depletion voltage can be obtained.
+From this measurement, the value of the depletion voltage can be obtained.
 
 \subsection{Interaction of ionising radiation with matter}
 In this experiment, the EASy detector system is employed to measure ionising particles from a strontium-90 source. 
@@ -133,7 +133,7 @@ activity doubled.
 
 \subsubsection{Interactions of electrons in matter}
 \label{sec:therory_interactions}
-When traversing a material, the electrons interact with the nucleus and electrons of the atomic shell and deposit energy. Since the kinetic energy of the electrons in this experiment
+When traversing a material, the electrons interact with the nuclei and electrons of the atomic shell and deposit energy. Since the kinetic energy of the electrons in this experiment
 is not large enough, bremsstrahlung, inelastic collisions with the nuclei and Cherenkov radiation are not considered. The relevant effect here, is the ionisation of the atoms by 
 collisions of the incoming electrons with shell electrons. The average energy loss per distance of the electron is given by the modified Bethe-Bloch equation \cite{Leo1987}
 \begin{equation}
