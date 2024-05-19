@@ -1,2 +1,35 @@
 \section{Discussion}
 \label{sec:Discussion}
+As mentioned in chapter \ref{sec:Analysis}, the experimental setup malfunctioned during data taking. Only
+the data for the current-voltage characteristic was taken. The data for the other tasks was provided. However,
+since the detector unit was malfunctioning after, it is questionable if the data taken for the first task is 
+fully trustworthy. Also, since the other data was provided from another experimental group, it cannot be
+confirmed, that the data was taken correctly. So all of the results are to be taken with caution.\\
+For the current-voltage characteristic, a depletion voltage of $\qty{60}{\volt}$ was determined. According to the
+informational sheet given, the depletion voltage should be somewhere around $\qty{60}{}$ - $\qty{70}{\volt}$\cite{SiliconStrip}.
+The depletion voltage cannot be obtained with full confidence, since the obtained current-voltage characteristic
+seems inaccurate. A clear kink should be visible in the obtained data. However, only a slight curvature is visible.
+This might as well result from the apparatus malfunctioning and giving inaccurate data.\\
+As for the pedestal and noise measurement, the results seem valid. The common mode shift follows a gaussian distribution
+as expected and the noise follows an approximate uniform distribution as it would be expected from noise.\\
+The calibration measurements on the one hand show, that all tested channels yielded the same results and 
+they also give a clear ADC counts - charge - relation. A polynominal function was fitted to the data and
+resulted in a function, that can be used for the other tasks.\\
+By shifting the location of the laser, the pitch and width can be extracted. The resulting widths are $d_{\mathrm{strip}} = \qty{100 \pm 0}{\micro\metre}$
+and the pitch is $p_{83} = \qty{120}{\micro\metre}$ for channel 83 and $p_{84} = \qty{110}{\micro\metre}$ for channel 84.
+The values are approximate values extracted visually from the graphical representation of the data. Therefore, no exact
+deviation would make sense and although the pitches of the two channels differ, they are compliant with each
+other if one regards the approximation.\\
+The charge collection efficiency was calculated for the laser and for the source measurement. The
+penetration depth resulting from a fit of the data to \autoref{eq:CCE} is determined as $\qty{980}{\nano\metre}$
+Literature values for the penetration depth of a laser with a wavelength of $\qty{980}{\nano\metre}$ was not provided
+by the instructions and also not found online. However, values for a wavelength of $\qty{960}{\nano\metre}$ and $\qty{1073}{\nano\metre}$
+were provided for which the penetration depth is $\qty{74}{\micro\metre}$ and $\qty{380}{\micro\metre}$ respectively\cite{SiliconStrip}. Therefore,
+the results are compliant with the given literature value. As for the source scan, the resulting plot is similiar 
+to the CCE plot for the laser measurement. As expected, the counts become constant as the depletion voltage is reached.
+The source measurement reaffirms the laser measurement.\\
+For the large source scan, hitmap of the distribution of the events per channel shows has a gaussian shape most likely centered around the location of the source.
+The calculated mean energy of $E_{\mathrm{mean}} = \qty{135.94}{\kilo\electronvolt}$ corresponds to an energy depostion of \qty{4.53}{\mega\electronvolt\per\centi\metre}.
+Comparing this value to the theoretical value for pure silicon of \qty{3.88}{\mega\electronvolt\per\centi\metre}, a deviation of \qty{16.8}{\percent} arises.
+This could be explained with the doping of the silicon of the sensor, leading to a higher energy deposition. Additionally, the absorption of electrons in other 
+matter sitting between the source and the sensor would need to be considered for more precise results.

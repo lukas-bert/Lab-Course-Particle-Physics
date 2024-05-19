@@ -4,7 +4,7 @@ This section focuses on the analysis of the measured data. Because of a malfunct
 that data could be taken, the trustworthiness can be questioned. The data for all of the tasks, except for the measurement of the current-voltage characterisic,
 was kindly provided by our supervisor.
 
-\subsection{Current - voltage characterisic}
+\subsection{Current - voltage characteristic}
 \label{sec:current-voltage characterisic}
 In a first step, the sensor current $I$ is measured as a function of the applied bias voltage $U$. The resulting data are shown in \autoref{fig:U_dep}.
 \begin{figure}
@@ -15,7 +15,8 @@ In a first step, the sensor current $I$ is measured as a function of the applied
     \label{fig:U_dep}
 \end{figure}
 By comparing this plot with the theoretical prediction \autoref{fig:leakage_current}, the depletion voltage $U_{\mathrm{dep}}$ is determined by identifying a kink
-in the graph. In the case of this data, this is particularly difficult. Reasons for this are further adressed in \autoref{sec:Discussion}. \\
+in the graph. In the case of this data, this is particularly difficult. Reasons for this are further adressed in \autoref{sec:Discussion}. The depletion voltage
+estimated from the characteristic is $U_\mathrm{dep} = \qty{60}{\volt}$.\\
 In the following, a bias voltage of \qty{80}{\volt} is used to ensure that the detector is depleted entierly.
 
 \subsection{Pedestals, noise and common mode shift}
@@ -30,19 +31,19 @@ Taking the root-mean-square of the ADC counts subtracted of the pedestal and com
 the data are represented in \autoref{fig:noise}.
 \begin{figure}
     \centering
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.8\textwidth}
       \includegraphics[width = \textwidth]{build/pedestal.pdf}
       \caption{Pedestal $P(i,k)$.}
       \label{fig:pedestals}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.8\textwidth}
       \includegraphics[width = \textwidth]{common_mode_shift.pdf}
       \caption{Common mode shift $D(k)$.}
       \label{fig:common_noise}
     \end{subfigure}
     \vfill
-    \begin{subfigure}{0.49\textwidth}
+    \begin{subfigure}{0.8\textwidth}
         \includegraphics[width = \textwidth]{noise.pdf}
         \caption{Noise $N(i)$.}
         \label{fig:noise}
@@ -55,6 +56,7 @@ Analyzing the common mode shift $D(k)$ in \autoref{fig:common_noise}, it is clea
 distribution with increasing noise at the sensors' edges is present.
 
 \subsection{Calibration measurements}
+\label{sec:analysis_calib}
 A proper calibration of the system is necessary to ensure a good quality of the data. Therefore, the delay time is optimized by performing a delay scan and determining
 the maximum value and entering this value into the GUI of the program.\footnote{The data to this are unfortunately lost because of the complications we had with the setup.
 A similar calibration is performed for the laser synchronization run in \autoref{sec:characteristics_strip_sensor}.}\\
@@ -212,46 +214,60 @@ the depletion voltage of $U_\mathrm{dep} = \qty{80}{\volt}$ the ADC counts are m
 
 \subsection{Large source scan}
 \label{sec:large_q}
-
+In the final part of the measurement series, the sensor is exposed to the source for a total of approximately \num{1000000} events. In \autoref{fig:large_q_scan}, 
+the data for this large source scan are represented. \autoref{fig:no_cluster} shows the number of clusters that each event caused. The number of responding channels
+to each cluster ist depicted in \autoref{fig:no_channels}. Here, no more than five different channels were triggered. The distribution of all the counts on all the
+channels is given in \autoref{fig:large_q_hitmap}. The shape of the distribution suggests that the source was focused at the strips corresponding to the channels
+70 to 90.
 \begin{figure}
     \centering
     \begin{subfigure}{0.49\textwidth}
       \includegraphics[width = \textwidth]{build/number_cluster.pdf}
-      \caption{.}
-      \label{fig:x}
+      \caption{Number of clusters.}
+      \label{fig:no_cluster}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
       \includegraphics[width = \textwidth]{build/number_channels.pdf}
-      \caption{.}
-      \label{fig:y}
+      \caption{Number of activated channels per cluster.}
+      \label{fig:no_channels}
     \end{subfigure}
     \vfill
     \begin{subfigure}{0.49\textwidth}
         \includegraphics[width = \textwidth]{build/hitmap.pdf}
-        \caption{}
-        \label{fig:z}
+        \caption{Hitmap, events per channel.}
+        \label{fig:large_q_hitmap}
       \end{subfigure}
-    \caption{.}
-    \label{fig:xyz}
+    \caption{Visualization of different aspects of the large source scan.}
+    \label{fig:large_q_scan}
   \end{figure}
+
+  When binning the ADC counts for this large source scan, a maximum can be determined. With the help of the previously calculated correlation function of the 
+  ADC counts and charge (see \autoref{sec:analysis_calib}), the energy spectrum can be extracted. Therefore, the charge needed to create electron-hole pairs of
+  \qty{3.6}{\electronvolt} needs to be accounted for. The resulting distribution is displayed in \autoref{fig:large_q_energy}.
 
   \begin{figure}
     \centering
     \begin{subfigure}{0.49\textwidth}
         \includegraphics[width = \textwidth]{build/cluster_adc.pdf}
-        \caption{.}
-        \label{fig:a}
+        \caption{ADC counts}
+        \label{fig:large_q_adc}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
         \includegraphics[width = \textwidth]{build/cluster_adc_energy.pdf}
-        \caption{.}
-        \label{fig:b}
+        \caption{Energy}
+        \label{fig:large_q_energy}
     \end{subfigure}
-    \caption{.}
-    \label{fig:ab}
+    \caption{Spreading of the ADC counts and energy.}
+    \label{fig:large_q_adc_energy}
 \end{figure}
+
+The mean value of the energy as well as the most probable value are read off as
+\begin{align*}
+    E_{\mathrm{mean}} &= \qty{135.94}{\kilo\electronvolt} \\
+    E_{\mathrm{MPV}}  &= \qty{89}{\kilo\electronvolt}. \\
+\end{align*}
 
 % Optimal delay laser scan: 64.0
 % Laserscan shape adc: (128, 35)
