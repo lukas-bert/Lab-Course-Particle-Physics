@@ -37,7 +37,8 @@ corresponding to an integrated luminosity of $\qty{434}{\pico\barn^{-1}}$ ($\qty
 Here, only the decay into three kaons ($h^{\pm} =  K^{\pm}$) is considered.
 A dataset of simulated $B^{\pm} \to K^{\pm} K^+ K^-$ decays is also available. \\
 At first, the data is read from the provided \texttt{.root} files using the python extension \textit{pyROOT} of the software package \textit{ROOT} \cite{ROOT}.
-Histograms of the distributions of the variables listed in the file are to be created for the simulated and measured data.
+Histograms of the distributions of the variables listed in the file are to be created for the simulated and measured data. The provided parameters for both simulation
+and real data are listed in the appendix. The simulated data does not include decays via resonances.
 Next, the energy of the kaons in the simulated data is calculated using the known kaon mass and its momentum. From this, the invariant mass of the $B$-mesons can be calculated 
 and histogrammed. 
 The same is done for the measured data after decays with only kaons in the final state are selected using PID information from the variables listed in the dataframe. 
