@@ -49,14 +49,14 @@ mass of the $B^{\pm}$ meson can be calculated via \autoref{eq:energy-momentum-ma
   \caption{Histogram of the mass of the $B^{\pm}$ meson of the simulated data.}
   \label{fig:B_M_sim}
 \end{figure}
-The distribution has a sharp peak at the mass of the $B^{\pm}$ meson ($m_{B^{\pm}} = \qty{5279.41(0.07)}{\mega\electronvolt}$ \cite{PDG}). This is due to the fact, that this is simulated data using information about the mass of the $B^{\pm}$ meson during
+The distribution has a sharp peak at the mass of the $B^{\pm}$ meson ($m_{B^{\pm}} = \qty{5279.41(0.07)}{\mega\electronvolt}$ \cite{PDG}). This is because the data is simulated data using information about the mass of the $B^{\pm}$ meson during
 the simulation process. The distribution for real data would be a lot broader and will also contain combinatorial background.
 
 \subsection{Preselection}
 
 To reduce combinatorial background and misidentified decays as well as selecting only the decay into kaons, tighter cuts on the given parameters are needed. By using the distributions of the given
 parameters (\autoref{fig:ProbKPi}), that describe the likeliness of the hadron being a specific particle, one can decide for appropriate cuts. This is done for all three final state
-hadrons. When choosing the cut, it is wise to not cut too tight. This would reduce signal events and worsen the statistics. Also, to ensure that the
+hadrons. When choosing the cut, it is important not to cut too tightly. Doing so would reduce the number of signal events and worsen the statistics. Also, to ensure that the
 hadrons are not muons, the variable \texttt{isMuon} is used for the preselection. The chosen cuts are listed
 in \autoref{tab:Preselection}.
 \begin{table}[h!]
@@ -75,11 +75,12 @@ in \autoref{tab:Preselection}.
     \caption{The chosen cuts for the preselection of the recorded data. The values are chosen according to the distributions shown in \autoref{fig:ProbKPi}.}
     \label{tab:Preselection}
 \end{table}
+
 \begin{figure}
   \centering
   \includegraphics[width = 1\textwidth]{"content/pics/ProbKPi.png"}
 
-  \caption{A 2-dimensional histogram for the Kaon and Pion Probability of the three hadrons.}
+  \caption{A 2-dimensional histogram for the Kaon and Pion probability of the three hadrons.}
   \label{fig:ProbKPi}
 \end{figure}
 The magnitude of the momentum, the energy as well as the mass of the $B^{\pm}$ meson is calculated for the real data, just like it has been done in \autoref{sec:simdata} for the simulated data.
@@ -96,8 +97,8 @@ cuts are tested. The chosen cuts seem to be the best choice for rejected most ba
 
 \subsection{Global matter anti-matter differences}
 
-To study possible CP violation, the dataset has to be splited for events with $B^+ \rightarrow K^+ K^+ K^-$ and $B^- \rightarrow K^- K^+ K^-$. The $B^{\pm}$ meson charge is established by 
-looking at the charge of the kaon candidates. Those events, which have two negatively charge kaons came from a $B^-$ meson and those with two positively charged kaons from a $B^+$ meson.
+To study possible \textit{CP} violation, the dataset has to be split for events with $B^+ \rightarrow K^+ K^+ K^-$ and $B^- \rightarrow K^- K^+ K^-$. The $B^{\pm}$ meson charge is established by 
+looking at the charge of the kaon candidates. Those events, which have two negatively charged kaons came from a $B^-$ meson and those with two positively charged kaons from a $B^+$ meson.
 The asymmetry is calculated by summing the number of events in each dataset and using \autoref{eq:CP_asymmetry}.\\
 The resulting global asymmetry for the selected events is $A_{CP} = 0.0436$. In particle physics, a value is only considered an observation, if it is at least five standard deviations. If it exceeds
 three sigma, it is considered evidence. The uncertainty of the asymmetry can be calculated via
@@ -110,20 +111,20 @@ as evidence.\\
 However, the statistical uncertainty is not the only uncertainty that should be regarded when analysing this decay. The production asymmetry can be approximated with $1\%$ and is substracted from the raw asymmetry. By using \autoref{eq:unc}, the uncertainty
 for the production asymmetry is $\sigma_P = 0.0109$. Using gaussian error propagation, the improved asymmetry, the final uncertainty, and the significance are
 \begin{align*}
-  A_{CP, global} &= 0.0336,\\
-  \sigma_{A_{CP,global}} &=  0.0154\, \, \mathrm{and}\\
-  S_{A_{CP,global}} &= 2.181.
+  A_{CP, \mathrm{global}} &= 0.0336,\\
+  \sigma_{A_{CP,\mathrm{global}}} &=  0.0154\, \, \mathrm{and}\\
+  S_{A_{CP,\mathrm{global}}} &= 2.181.
 \end{align*}
 The result is therefore no longer regarded as evidence.
 
 \subsection{Dalitz plots and resonances}
 
 The decay $B^{\pm} \rightarrow K^{\pm} K^+ K^-$ does not only occur in the direct way. It can also take place via neutral resonances $R^0$. These resonances are neutral mesons, which then decay into a pair of positively and negatively
-charged kaons. There are two possible combinations for this, since two kaons always have the same charge. To visualise and make out resonances, a dalitz plot can be drawn. For the dalitz plot, the masses for these two resonance combinations
+charged kaons. There are two possible combinations for this, since two kaons always have the same charge. To visualise and make out resonances, a Dalitz plot can be drawn. For the Dalitz plot, the masses for these two resonance combinations
 are calculated just like as for the $B^{\pm}$ meson. The squared masses of the two resonance combinations are then plotted against each other in a two dimensional diagram. On this plot, resonances are visible by band structures. Depending
 on the likeliness of the resonance, these bands can be less or more clear to make out.\\
-For the simulated data, the dalitz plot is shown in \autoref{fig:dalitz_sim}. The simulated data does not include resonances and is therefore uniformly distributed.
-As for the recorded data, the dalitz plot is shown in \autoref{fig:dalitz_real}. It is important to first look up, which kaon candidates are oppositely charged. In this case, the second and third kaon candidate have the same charge. 
+For the simulated data, the Dalitz plot is shown in \autoref{fig:dalitz_sim}. The simulated data does not include resonances and is therefore uniformly distributed.
+As for the recorded data, the Dalitz plot is shown in \autoref{fig:dalitz_real}. It is important to first look up, which kaon candidates are oppositely charged. In this case, the second and third kaon candidate have the same charge. 
 Therefore, only the combinations $R_{12}^0$ and $R_{13}^0$ are neutral. The combination of the second and third particle would mean, that there was a double positively or negatively charged resonance, which is not possible in the Standard Model.
 \begin{figure}
   \centering
@@ -140,7 +141,7 @@ Therefore, only the combinations $R_{12}^0$ and $R_{13}^0$ are neutral. The comb
       \caption{Dalitz plot of the data recorded at the LHCb detector.}
       \label{fig:dalitz_real}
   \end{subfigure}
-     \caption{Scatter plots of the dalitz plots for the simulated data and the recorded data.}
+     \caption{Scatter plots of the Dalitz plots for the simulated data and the recorded data.}
 \end{figure}
 
 To make the resonances more visible, it can be helpful to order the resonances by mass. This creates a variable "Low", which always includes the resonance with the lower mass and a variable "High" which includes the resonance
@@ -168,20 +169,20 @@ PDG \cite{PDG}, one can identify the first resonance $R^0_1$ as the $D^0$ meson 
 
 \subsection{Local matter anti-matter differences}
 
-As we want to observe CP violation in charmless $B^{\pm}$ meson decays, we need to cut out both of the resonances, as they include charm quarks. This is done by applying a cut on the mass as 
+As we want to observe \textit{CP} violation in charmless $B^{\pm}$ meson decays, we need to cut out both of the resonances, as they include charm quarks. This is done by applying a cut on the mass as 
 \begin{align*}
-  (m_{Res} > \qty{1890}{\mega\electronvolt}) \, &\mathrm{or} \, (m_{Res} < \qty{1830}{\mega\electronvolt})\\
+  (m_{\mathrm{Res}} > \qty{1890}{\mega\electronvolt}) \quad &\mathrm{or} \quad (m_{\mathrm{Res}} < \qty{1830}{\mega\electronvolt})\\
   &\mathrm{and} \\
-  (m_{Res} > \qty{3440}{\mega\electronvolt}) \, &\mathrm{or} \, (m_{Res} < \qty{3390}{\mega\electronvolt}).
+  (m_{\mathrm{Res}} > \qty{3440}{\mega\electronvolt}) \quad &\mathrm{or} \quad (m_{\mathrm{Res}} < \qty{3390}{\mega\electronvolt}).
 \end{align*}
-The dalitz plot after and before removing the most significant resonances is shown in \autoref{fig:dalitz_real_ordered_nocharm}. No clear band structures are visible anymore.
+The Dalitz plot after and before removing the most significant resonances is shown in \autoref{fig:dalitz_real_ordered_nocharm}. No clear band structures are visible anymore.
 \begin{figure}
   \centering
   \includegraphics[width = .95\textwidth]{"content/pics/dalitz_real_ordered_no_charm.png"}
   \caption{Dalitz plots after (left) and before (right) removing charm resonances.}
   \label{fig:dalitz_real_ordered_nocharm}
 \end{figure}
-The CP asymmetry is evaluated for different kinematic regions now. To do this, the dataset is splitted for positively and negatively charged $B$ mesons. The binned dalitz plots for each dataset are shown in \autoref{fig:binned_dalitz_no_charm}.
+The \textit{CP} asymmetry is evaluated for different kinematic regions now. To do this, the dataset is splitted for positively and negatively charged $B$ mesons. The binned dalitz plots for each dataset are shown in \autoref{fig:binned_dalitz_no_charm}.
 \begin{figure}
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
@@ -198,33 +199,33 @@ The CP asymmetry is evaluated for different kinematic regions now. To do this, t
      \caption{Binned Dalitz plot of the recorded data including only decays of $B^-$.}
      \label{fig:binned_dalitz_no_charm}
 \end{figure}
-The counts for each bin are extracted and used to calculate the CP asymmetry bin-wise. The CP asymmetry for each bin is shown in \autoref{fig:binned_asymmetry_no_charm}. 
+The counts for each bin are extracted and used to calculate the \textit{CP} asymmetry bin-wise. The \textit{CP} asymmetry for each bin is shown in \autoref{fig:binned_asymmetry_no_charm}. 
 \begin{figure}
   \centering
   \includegraphics[width = .45\textwidth]{"content/pics/binned_asymmetry_no_charm.png"}
-  \caption{Binned CP asymmetry for the recorded data.}
+  \caption{Binned \textit{CP} asymmetry for the recorded data.}
   \label{fig:binned_asymmetry_no_charm}
 \end{figure}
-The resulting CP asymmetry can be misleading, if the statistic in the relative bin is too low. To prevent this and extract a meaningful conclusion, the uncertainty and significance per bin is calculated and shown in \autoref{fig:binned_unc_sig_no_charm}.
+The resulting \textit{CP} asymmetry can be misleading, if the statistic in the relative bin is too low. To prevent this and extract a meaningful conclusion, the uncertainty and significance per bin is calculated and shown in \autoref{fig:binned_unc_sig_no_charm}.
 \begin{figure}
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
       \centering
       \includegraphics[width=\textwidth]{"content/pics/binned_unc_no_charm.png"}
-      \caption{Binned uncertainty of the CP asymmetry for the recorded data.}
+      \caption{Binned uncertainty of the \textit{CP} asymmetry for the recorded data.}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\textwidth}
       \centering
       \includegraphics[width=\textwidth]{"content/pics/binned_sig_no_charm.png"}
-      \caption{Binned significance of the CP asymmetry for the recorded data.}
+      \caption{Binned significance of the \textit{CP} asymmetry for the recorded data.}
   \end{subfigure}
-     \caption{Binned uncertainty and significance for the caluclated CP asymmetry.}
+     \caption{Binned uncertainty and significance for the caluclated \textit{CP} asymmetry.}
      \label{fig:binned_unc_sig_no_charm}
 \end{figure}
 As can be seen in \autoref{fig:binned_unc_sig_no_charm} and \autoref{fig:binned_asymmetry_no_charm}, the lower kinematic region shows high significance and asymmetry. This region is extracted by applying a cut as 
 \begin{align*}
-  (m_{Low} < \qty{2000}{\mega\electronvolt}) \, \mathrm{and} \, (m_{High} > \qty{2287}{\mega\electronvolt}) \, \mathrm{and} \, (m_{High} < \qty{4067}{\mega\electronvolt})
+  (m_{\mathrm{Low}} < \qty{2000}{\mega\electronvolt}) \quad \mathrm{and} \quad (m_{\mathrm{High}} > \qty{2287}{\mega\electronvolt}) \quad \mathrm{and} \quad (m_{\mathrm{High}} < \qty{4067}{\mega\electronvolt})
 \end{align*}
 This corresponds to the first three bins in the x-axis and the third to ninth bin in the y-axis. The mass distribution of the $B^+$ and $B^-$ mesons are shown in \autoref{fig:B_M_after}. 
 \begin{figure}
@@ -243,11 +244,11 @@ This corresponds to the first three bins in the x-axis and the third to ninth bi
      \caption{Distributions of the invariant mass of the $B^\pm$ candidates in the relevant bins of the Dalitz plot.}
      \label{fig:B_M_after}
 \end{figure}
-The resulting local CP asymmetry
+The resulting local \textit{CP} asymmetry
 corrected by the production asymmetry, the uncertainty and the significance are
 \begin{align*}
-  A_{CP,loc} &= 0.1129\\
-  \sigma_{A_{CP,loc}} &= 0.0195 \, \, \mathrm{and}\\
-  S_{A_{CP,loc}} &= 5.2748.
+  A_{CP,\mathrm{loc}} &= 0.1129\\
+  \sigma_{A_{CP,\mathrm{loc}}} &= 0.0195 \\ %\, \, \mathrm{and}\\
+  S_{A_{CP,\mathrm{loc}}} &= 5.2748.
 \end{align*}
-The found local CP asymmetry can therefore be called a discovery.
+The found local \textit{CP} asymmetry can therefore be called a discovery.
