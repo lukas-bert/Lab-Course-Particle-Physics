@@ -1,2 +1,30 @@
-\section{Durchführung}
-\label{sec:Durchführung}
+\section{The LHCb detector}
+\label{sec:Detector}
+Located at CERN, the LHC is the largest particle collider in the world and houses a number of experiments. Opposing protons beams are collided at four different
+interaction points. At one of these, the LHCb experiment is installed. This detector is constructed as a single-arm forward spectrometer with allows for an optimized detection in the pseudorapidity range
+of $2≤\eta≤5$. With the help of this design, the LHCb detector is well suited for the detection of decays that include $b$ and $c$ quarks because the production of these is favored for small angles along the
+beam axis. \\
+The LHCb experiment consists of serveral sub-detectors, each with a different special purpose. A cross-section of the detector used during the second data-taking run is depicted in \autoref{fig:LHCb_detector}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{content/pics/LHCb_detector.pdf}
+    \caption{Cross-section of the LHCb detector. A right-handed coordinate system with the z-axis parallel to the beam pipe and the y-axis orientated to the top is used to describe the detector.%
+    The different sub-detectors and their purpose and functionality are discussed in this section~\cite{LHCb_detector}.}
+    \label{fig:LHCb_detector}
+\end{figure}
+In the immediate proximity of the interaction point, the Vertex Locator (VELO) is located. Primary and secondary vertices are identified by the 52 silicon pixel modules. The detector is divided into two
+halves that are retractable. During the injection phase, the VELO is sitting in its retracted position because the beam is not as focused as during the stable beam phase. Due to the closeness of the VELO to the 
+interaction point, the primary veritices can be reconstructed with great accuracy. \\
+One of the two Ring Imaging Cherenkov detectors (RICH) is located right before the \qty{1.4}{\tesla} dipole magnet while the other RICH detector is situated behind the tracking stations. Two materials with 
+different refractive indices are used in the two RICH detectors to determine the velolcity of the particles via the Cherenkov effect. The implementation of two detectors allows for a larger momentum range 
+reconstruction. \\
+The position of the particles are detected by the tracking stations, the Tracker Turicensis (TT) and T1-T2. With this information and the previously measured velolcity, the momentum of the particles can
+be calculated. \\
+For the determination of the energy of the particles, the electromagnetic and hadronic calorimeters (ECAL and HCAL) are employed. To accomplish this task for the ECAL, the shashlik calorimeter 
+technology is used. Here, an absorber material and a detector layer of a scintillating material are stacked alternately. The HCAL is constructed similarly but with the scintillating tiles running 
+parallel to the beam axis. \\
+Muon stations at the end of the detector identify the muons that are passing through the detector. This is accomplished by four multi-wire proportional chambers. \\
+Because of the large number of potential events, a trigger system is used to identify interesting decays. The data of these are then saved for further offline analysis.
+
+\section{Analysis strategy}
+\label{sec:strategy}
