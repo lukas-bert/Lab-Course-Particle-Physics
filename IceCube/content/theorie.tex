@@ -1,4 +1,127 @@
-\section{Theorie}
-\label{sec:Theorie}
+\section{Motivation}
+The study of particles from astrophysical sources is of great interest to understand stellar and galactic processes, as well as our universe itself.
+Neutrinos are well suited for these studies, since they are uncharged and only interact weakly, allowing to trace back measured neutrinos on earth to their origin
+in far away astrophysical sources. \\
+In this analysis, a selection of neutrino events is performed using Monte Carlo simulation data from the IceCube experiment. 
+A minimum redundancy, maximum relevance (\textit{mRMR}) selection is employed to determine the most suitable features for a multivariate analysis 
+separating signal and background events. Three different machine algorithms are compared and their performance on the classification task is evaluated.
 
-\cite{sample}
+
+\section{Theory}
+\label{sec:Theory}
+In this section, the theory aspects of the analysis are explained.
+At first, the basics of astroparticle physics and neutrino detections are described and then, machine learning methods utilized in this study are discussed. 
+
+\subsection{Fundamentals of Astroparticle Physics and Cosmic Rays}
+The earth is constantly hit by ionizing, high energy particles originating from astrophysical sources in the universe which are called \textit{cosmic rays}. 
+The majority of these particles are protons, light and heavy nuclei and electrons that interact with the earth's atmosphere and cause large cascades of particle decays 
+(\enquote{\textit{air showers}})
+which can be measured as cosmic radiation on earth. Since these particles are charged, they are deflected by galactic and extragalactic magnetic fields on their way to earth and 
+cannot be traced back to their origin. The energy spectrum of these charged particles extends up to $10^{20}\, \unit{\mega\eV}$ and has a flux described by the power law 
+\begin{equation}
+    \frac{\mathrm{d}\Phi}{\mathrm{d}E} = \Phi_0 E^\gamma,
+    \label{eq:flux}
+\end{equation}
+where $\gamma \approx \num{-2.7}$ is the spectral index.
+Apart from the charged particles, high energy gamma rays and neutrinos from outer space reach the earth. Since these particles are not charged, they can in theory be 
+traced back to their origin. Neutrinos only interact via the weak interaction and have very small cross sections, allowing them to penetrate dense regions in the universe on 
+their way to earth which is not possible for gamma rays that interact via the electromagnetic interaction.
+This analysis will focus on neutrinos that are measured by the IceCube experiment, which is described in detail in \autoref{sec:Detector}.
+At IceCube, atmospheric and cosmics neutrinos are measured. The atmospheric neutrinos are created in the previously mentioned air showers and are further categorized into 
+conventional and prompt neutrinos. Conventional neutrinos originate from kaon and pion decays into a muon and muon neutrino. Since these particles have a comparatively long
+lifetime, they lose a significant amount of energy before they decay, resulting in an energy spectrum with a spectral index of $\gamma \approx \num{-3.7}$. 
+Prompt neutrinos stem from semi-leptonic decays of heavy hadrons like $D$ mesons and $\Lambda$ baryons which have a short lifetime and therefore do not lose as much energy,
+resulting in a energy spectrum with $\gamma \approx \num{-2.7}$, similar to the spectrum of charged cosmic rays. Here, the cosmics neutrinos from astrophysical sources are the wanted signal to be measured. 
+Under the assumption of shock acceleration \cite{Fermi1949}, the flux of these neutrinos has a spectral index of $\gamma \approx \num{-2}$.
+
+\subsubsection{Measurement of neutrinos with the IceCube detector}
+In IceCube, neutrinos are measured via \textit{Cherenkov light} of secondary particles that are created in interactions with the ice molecules.
+Cherenkov light is emitted when a charged particle traverses a medium with a higher velocity than the respective speed of light in the medium.
+The speed of light in a medium  with refractive index $n$ is given by $c = \sfrac{c_0}{n}$, where $c_0$ is the speed of light in vacuum.
+The neutrinos can interact via the charged current (\textit{CC})
+\begin{equation}
+    \nu_l(\bar{\nu}_l) + A \to l^\mp + X
+    \label{eq:CC}
+\end{equation}
+and the neutral current (\textit{NC})
+\begin{equation}
+    \nu_l + A \to \nu_l + X,
+    \label{eq:NC}
+\end{equation}
+where $A$ are the ice nuclei and $X$ all other finals state particles in the reaction. Different signatures of the events allow to distinguish between 
+different lepton flavors in \autoref{eq:CC} and NC events. 
+Electrons and NC events create circular, cascade like events, whereas muons create long tracks in the detector. Tau leptons have a short lifetime and therefore 
+cause events with two nearby circular cascades. Further information on the IceCube detector system is given in \autoref{sec:Detector}.
+
+\subsection{Feature Selection and Multivariate Analysis}
+In this section, the feature selection and machine learning algorithms that are employed in this analysis are briefly described.
+\subsubsection{mRMR Selection}
+In a mRMR (minimum redundancy, maximum relevance) selection, a set of variables (features) is iteratively selected that strongly correlates with the target (signal or background)
+and has a low redundancy (correlation between features). For this purpose, the joint information of two variables $x, y$
+\begin{equation}
+    I(x, y) = \int p(x,y) \symup{log}\left(\frac{p(x,y)}{p(x)p(y)}\right)\mathrm{d}x\mathrm{d}y
+    \label{eq:mRMR}
+\end{equation}
+is considered, where $p(x/y)$ are the respective probability functions. Here, the mRMR implementation in the python package \textit{mrmr-selection} \cite{mrmr} is used.
+
+\subsubsection{Na\"ive Bayes Classifier}
+In a na\"ive bayes classifier, Bayes theorem on conditional probabilites
+\begin{equation}
+    p(A|B) = \frac{p(B|A)p(A)}{p(B)}
+    \label{eq:Bayes}
+\end{equation}
+is used to express the likelihood of an event belonging to a class $A(\overline{A})$ (signal (background)) using features $B_i$.
+With $n$ attributes, the measure 
+\begin{equation}
+    Q = \prod_{i=1}^{n} \frac{p(B_i|A)}{p(B_i|\overline{A})}
+\end{equation}
+is used to distinguish between signal with $Q > 1$ and background.
+
+\subsubsection{Decision Trees}
+Decision trees are binary classifiers, that separate between different classes by subsequently applying binary cuts on the available variables. 
+For each decision point (\textit{node}), the cut that maximes the separation between the classes is searched. The data is divided into two subsets after each cut, till a
+maximum number of cuts (depth) is reached or the classes are fully separated.
+To minimize overtraining, different techniques can be employed to make the classification more robust. For example, a boosted decision tree (\textit{BDT}) can be used.
+A BDT is an ensemble of multiple decision trees, where each tree is sequentially trained with weighting previously misclassified data higher. By using this approach, 
+the bias and variance of the classification are reduced, while the accuray is inreased.
+
+\subsubsection{Some other MVA method that is used here}
+Schreibe ich noch, je nachdem was Tom noch für classifier nimmt.
+
+\subsubsection{Evaluation Metrics}
+In order to evaluate the performance of a classifier on the classification task, different metrics are used.
+The classification output can be grouped into four categories: Correctly classified signal events (true positives \enquote{\textit{tp}}), correctly classified background 
+(true negatives \enquote{\textit{tn}}), background events falsely classified as signal (false positives \enquote{\textit{fp}}) and signal events falsely classified as background
+(false negatives \enquote{\textit{fn}}). With these definition, the accuracy 
+\begin{equation}
+    a = \frac{\text{tp} + \text{tn}}{\text{tp} + \text{tn} + \text{fn} + \text{fp}},
+    \label{eq:accuracy}
+\end{equation}
+the precision
+\begin{equation}
+    p = \frac{\text{tp} }{\text{tp} + \text{fp}},
+    \label{eq:precision}
+\end{equation}
+and the recall 
+\begin{equation}
+    r = \frac{\text{tp} }{\text{tp} + \text{fn}}
+    \label{eq:recall}
+\end{equation}
+can be defined to evaluate the performance of the classification.
+Another useful metric is the $f_\beta$ score
+\begin{equation}
+    f_\beta = (1 + \beta^2)\frac{p \cdot r}{\beta^2 p + r},
+    \label{eq:f_beta}
+\end{equation}
+which is the harmonic mean of precision and recall with the recall weighed by a factor $\beta$.
+These metrics depend on the classification threshold $t$ that is applied to separate signal and background by a cut on the classifiers output, which is typically a value 
+between $0$ and $1$, where $1$ indicates a high probability of being signal and vice versa.
+A metric independent of the threshold $t$ can be obtained by the \textit{Receiver Operating Characteristic} (ROC) curve. In the ROC curve, the true positive rate 
+(\textit{TPR}) is plotted against the false positve rate (\textit{FPR}), with the TPR and FPR defined as 
+\begin{align}
+    \text{TPR}(t) &= \frac{\text{tp}(t)}{\text{tp}(t) + \text{fn}(t)} & \text{FPR}(t) &= \frac{\text{fp}(t)}{\text{fp}(t) + \text{tn}(t)},
+    \label{eq:TPR_FPR}
+\end{align}
+while varying the threshold $t$. The area under the curve (AUC-score) is a measure for the quality of the classification and takes the values $\num{0.5}$ for random guessing 
+and $\num{1}$ for a perfect classification. A AUC-score smaller than $\num{0.5}$ indicates, that the model confuses signal and background, which can easily be corrected by 
+inverting the classification.
