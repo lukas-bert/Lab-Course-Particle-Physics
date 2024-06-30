@@ -35,7 +35,7 @@ First, the training samples for the background and the signal need to be defined
 data is used for the training of this classifer. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
 The training samples for the signal classification cannot be sourced from the recorded data but must be simulated with Monte Carlo simulations. This leads to the problem of imperfect simulation data 
 that does not match the true data of the decay. This is due to not perfect theoretical models and computing constraints. The challenges of this problem can at least be partially overcome by introducing 
-computing weights. The here provided simulation data contains a variable called \texttt{kinematic\_weights} that helps to correct for the mismatches between simulation and recorded data. \\
+computing weights. The here provided simulation data contain a variable called \texttt{kinematic\_weights} that helps to correct for the mismatches between simulation and recorded data. \\
 Feature selection is another important aspect of this analysis. The classifier uses a number of features to decide whether the data is background or signal. Features, that can be used here, are extracted
 from the control channel \printBtoPsiKs. This decay is similar to the decay \printBstoPsiKs \: and therefore its features can be fed to the classifer.
 In principle, any number of features can be used by a classifier but the runtime scales with the number of features and too many features will eventually lead to overfitting. Some of the here provided features

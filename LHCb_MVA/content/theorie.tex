@@ -1,8 +1,8 @@
 \section{Motivation}
 
-During Run 2 (2015-2018) of the LHCb experiment at CERN, proton bunches with a centre of mass energy of $\qty{13}{\tera\electronvolt}$ collided approximately $40 \times 10^6$ times per second \cite{LHCb_MVA}.
+During Run 2 (2015-2018) of the LHCb experiment at CERN, proton bunches with a centre of mass energy of $\qty{13}{\tera\electronvolt}$ collided approximately $40 \times 10^6$ times per second~\cite{LHCb_MVA}.
 Next to potentially interesting processes, a lot of very common decays as well as background is recorded. To identify and extract rare decay channels, an extensive analysis including machine learning methods is needed.
-This analysis is aimed at finding events coming from the decay $B_s^0 \to \psi (2S)K_S^0$ using data recorded at LHCb in Run 2. 
+This analysis is aimed at finding events coming from the decay $B_s^0 \to \psi (2S)K_S^0$ using data recorded by the LHCb experiment in Run 2. 
 
 \section{Theory}
 \label{sec:Theorie}
@@ -31,7 +31,7 @@ The recorded data set does not only include $B_s^0 \to \psi (2S)K_S^0$ signal. M
 signal decay. The much more abundant decay $B^0 \to \psi (2S)K_S^0$ is also included in the recorded data. To differentiate between background and signal, an extensive analysis including
 training a classifier is needed.\\
 To evaluate and optimize the classifier (maximizing the number of signal candidates while keeping the background low), a loss function is to be minimized. The inverse of such loss functions is called figure of merit (FOM).
-In this analysis, the Punzi figure of merit for optmizing the signal efficiency
+In this analysis, the Punzi figure of merit for optimizing the signal efficiency
 \begin{equation}
     \label{eq:FOM}
     \mathrm{FOM}  = \frac{\epsilon_{\mathrm{sig}}}{5/2 + \sqrt{N_{\mathrm{bkg}}}}
