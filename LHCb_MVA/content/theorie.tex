@@ -13,7 +13,7 @@ final state. Together with the strange quark from the $B_s^0$ meson, the final s
 This decay can only occur via the weak force, since the quark flavour changes from $\bar{b}$ to $\bar{d}$. The Feynman diagram depicting this process is shown in \autoref{fig:Feynman_dia}.
 \begin{figure}
     \centering
-    \includegraphics[width = .7\textwidth]{"content/pics/Feynman.png"}
+    \includegraphics[width = .5\textwidth]{"content/pics/Feynman.png"}
     \caption{Feynman diagram of $B_s^0 \to \psi (2S)K_S^0$ \cite{LHCb_MVA}.}
     \label{fig:Feynman_dia}
   \end{figure}
@@ -28,22 +28,22 @@ $K_S^0$ can be reconstructed with the produced pion pairs.\\
 The given recorded data consists of various variables including kinematic properties of the muons, pions as well as the reconstructed $\psi (2S)$ and $K_S^0$ mesons. The $B_s^0$ can be reconstructed using the
 properties of the $\psi (2S)$ and $K_S^0$ while using their true invariant masses, being $m_{\psi (2S)} = \qty{3686.097(0.011)}{\mega\electronvolt}$ and $m_{K_S^0} = \qty{497.611(0.013)}{\mega\electronvolt}$ \cite{PDG}.\\
 The recorded data set does not only include $B_s^0 \to \psi (2S)K_S^0$ signal. Moreover, it primarily contains combinatorial background, consisting of random particle tracks whose particle trajectories align with the
-signal decay. The much more abundant decay $B^0 \to \psi (2S)K_S^0$ is also included in the recorded data and dominated the signal region. To differentiate between background and signal, an extensive analysis including
+signal decay. The much more abundant decay $B^0 \to \psi (2S)K_S^0$ is also included in the recorded data. To differentiate between background and signal, an extensive analysis including
 training a classifier is needed.\\
-To evaluate and optimise the classifier (maximising the number of signal candidates while keeping the background low), a loss function is to be minimised. The inverse of such loss functions is called figure of merit (FOM).
-In this analysis, the Punzi figure of merit for optmising the signal efficiency
+To evaluate and optimize the classifier (maximizing the number of signal candidates while keeping the background low), a loss function is to be minimized. The inverse of such loss functions is called figure of merit (FOM).
+In this analysis, the Punzi figure of merit for optmizing the signal efficiency
 \begin{equation}
     \label{eq:FOM}
-    \mathrm{FOM}  = \frac{\epsilon_{\mathrm{sig}}}{5/2 - \sqrt{N_{\mathrm{bkg}}}}
+    \mathrm{FOM}  = \frac{\epsilon_{\mathrm{sig}}}{5/2 + \sqrt{N_{\mathrm{bkg}}}}
 \end{equation}
-is to be maximised with $N_{\mathrm{bkg}}$ being the background candidates in the signal region (combinatorial background + $B^0 \to \psi (2S)K_S^0$ events) and $\epsilon_{\mathrm{sig}}$ being the efficiency of classifying
-the signal efficiency. The signal efficiency is calculated by using a Monte Carlo simulation of $B_s^0 \to \psi (2S)K_S^0$. The significance in the signal region can be calculated by
+is to be maximized with $N_{\mathrm{bkg}}$ being the background candidates in the signal region (combinatorial background + $B^0 \to \psi (2S)K_S^0$ events) and $\epsilon_{\mathrm{sig}}$ being the efficiency of classifying
+the signal. The signal efficiency is calculated by using a Monte Carlo simulation of $B_s^0 \to \psi (2S)K_S^0$. The significance in the signal region can be calculated by
 \begin{equation}
     \label{eq:sign}
     m = \frac{N_{\mathrm{sig}}}{\sqrt{N_{\mathrm{sig}} + N_{\mathrm{bkg}}}},
 \end{equation}
-using the given number of singal and background candidates by the classifier.\\
-To train an efficient and good Classifier, the right choice of variables is needed. One has to look for those variables, which differ the most for background and signal. To find these, one can caluclate the 
+using the given number of signal and background candidates by the classifier.\\
+To train an efficient and well performing classifier, the right choice of variables is needed. One has to look for those variables, which differ the most for background and signal. To find these, one can caluclate the 
 largest distance between the cumulative probability distributions $F^i$ of these variables:
 \begin{equation}
     \label{eq:Kolmogorov}

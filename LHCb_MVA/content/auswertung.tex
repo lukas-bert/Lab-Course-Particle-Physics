@@ -27,7 +27,7 @@ By weighting the mass histogram with the sWeights, only the control channel cont
 \end{figure}
 
 \subsection{Definition of a signal window}
-The mass distribution of the signal decay peaks only in a short window of the whole mass range, given in the dataset. In order to know, where signal is expected, a signal window 
+The mass distribution of the signal decay peaks only in a short window of the whole mass range given in the dataset. In order to know, where signal is expected, a signal window 
 has to be defined. This is done by calculating every interval containing $\qty{99}{\percent}$ of data in the signal simulation and choosing the shortest interval. 
 Here, this interval follows as $\qtyrange[range-units = single]{5333.4}{5394.6}{\mega\eVperc}$, defining the signal window of 
 $\qtyrange[range-units = single]{5333}{5395}{\mega\eVperc}$ which can also be seen in the aforementioned plots (\ref{fig:mass_signal}, \ref{fig:mass_data}).
@@ -39,7 +39,7 @@ have to be extracted. In total, $\num{863}$ variables are listed in the dataset.
 For these variables, the correlation to the invariant mass is calculated and variables having a correlation coefficient of $\num{0.3}$ or higher are excluded.
 Variables with too high correlation to the invariant mass would introduce a bias in training the classifier and could not be used in similarity checks between simulation and data,
 because the sWeights are based on the $B^0$ candidate mass. The remaining $\num{390}$ variables are checked to be correctly modelled by simulation and have significantly different 
-distributions for signal and background. This is done using the Kolmogorov Smirnov test statistic with the distance in \autoref{eq:Kolmogorov} for weighted distributions as a measure of similarity. 
+distributions for signal and background. This is done using the Kolmogorov Smirnov test statistic defined in \autoref{eq:Kolmogorov} for weighted distributions as a measure of similarity. 
 To check agreement between simulation and data, the distributions of sWeighted data are compared to the control channel distributions and $\num{190}$ variables with a test statistic 
 of $d > \num{0.05}$ are removed. The variables are also required to have a test statistic of $d > \num{0.2}$ when comparing signal (simulation) and background (USB), leaving 
 $\num{94}$ variables. After further removing variables that are highly correlated (correlation $> 0.9$) to others or dublicates of another variable, $\num{18}$ variables are 
@@ -75,7 +75,7 @@ The resulting parameter values can be read from \autoref{tab:hyperparameter}.
     \hline   
   \end{tabular}
 \end{table}
-For the classification, five individual BDT's are trained using 5-fold corss validation and the hyperparameters from \autoref{tab:hyperparameter}.
+For the classification, five individual BDT's are trained using 5-fold cross validation and the hyperparameters from \autoref{tab:hyperparameter}.
 To evaluate the classifiers performance, the ROC curve is viewed and the area under the curve, as well as the accuracy are calculated. 
 To check for overtraining, the response of the classifier is compared for training and simulation data in a logarithmic plot.
 The ROC curve and the train-test comparison of the fifth trained classifier can be seen in \autoref{fig:BDT}.
@@ -110,9 +110,9 @@ Additionally, the feature importance of the BDT variables is checked for imbalan
 After applying all BDT's to the data, a cut on the classifers response has to be made. Therefore the mean classifer response between all 5 BDT's is calculated.
 The classification threshold separating signal and background is optimized using the Punzi figure of merit \autoref{eq:FOM}.
 The signal efficiency $\varepsilon$ is therefore calculated for each threshold as the selection efficiency on the signal simulation. The background yield in the signal region $B$
-is estimated via a fit of an exponential function to the upper sideband of the data after applying the selectrion threshold, and extrapolated to the signal window.
+is estimated via a fit of an exponential function to the upper sideband of the data after applying the selection threshold, and extrapolated to the signal window.
 For the fitting, the python library \texttt{iminuit} \cite{iminuit} is used.
-The resulting values of the figure of merit are plotted against different thresholds in \autoref{fig:pFOM}
+The resulting values of the figure of merit are plotted against different thresholds in \autoref{fig:pFOM}.
 \begin{figure}
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
@@ -159,6 +159,6 @@ The fit parameters follow as
   \sigma_{B_s} &=  \qty{4.6 +- 0.8}{\mega\eVperc} & \sigma_{B_s} &=  \qty{6.22 +- 0.07}{\mega\eVperc} \\
   b &= \num{492 +- 24}  & \tau &= \num{124 +- 6}.
 \end{align*}
-From these, a significance proxy \autoref{eq:sign} of the observation of the signal can be calculated.
+From these, the significance proxy as defined in \autoref{eq:sign} of the observation of the signal can be calculated.
 Therefore, the signal and background events in the signal window are interpolated from the fit results as $n_\text{sig} = \num{43}$ and $n_\text{bkg} = \num{30}$.
 The significance proxy then reads $m = \num{5.07}$.
