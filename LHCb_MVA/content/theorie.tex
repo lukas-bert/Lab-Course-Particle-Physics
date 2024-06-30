@@ -1,4 +1,52 @@
-\section{Theorie}
+\section{Motivation}
+
+During Run 2 (2015-2018) of the LHCb experiment at CERN, proton bunches with a centre of mass energy of $\qty{13}{\tera\electronvolt}$ colide approximately $40 \times 10^6$ times per second \cite{LHCb_MVA}.
+Next to potentially interesting processes, a lot of very common decays as well as background is recorded. To identify and extract rare decay channels, an extensive analysis including machine learning methods is needed.
+This analysis is aimed at finding events coming from the decay $B_s^0 \to \psi (2S)K_S^0$ using data recorded at LHCb in Run 2. 
+
+\section{Theory}
 \label{sec:Theorie}
 
-\cite{sample}
+Before diving into the analysis, one has to understand the underlying kinematics of the decay. The $B_s^0$ meson consists of one $s$ and $\bar{b}$ quark (next to other sea quarks and gluons) and hence
+has a neutral net electric charge. As for this decay channel, the $b$ quark of the $B_s^0$ meson interacts with a $W^+$ gauge boson and results in a charm pair $c \bar{c}$ and a $\bar{d}$ quark in the 
+final state. Together with the strange quark from the $B_s^0$ meson, the final state consists of a $\psi (2S) \, [c \bar{c}]$ meson and a $K_S^0$ ("k-short") being a superposition of $d\bar{s}$ and $\bar{d}s$.
+This decay can only occur via the weak force, since the quark flavour changes from $\bar{b}$ to $\bar{d}$. The Feynman diagram showing this process is shown in \autoref{fig:Feynman_dia}.\\
+\begin{figure}
+    \centering
+    \includegraphics[width = .8\textwidth]{"content/pics/Feynman.png"}
+    \caption{Feynman diagram of $B_s^0 \to \psi (2S)K_S^0$ \cite{LHCb_MVA}.}
+    \label{fig:Feynman_dia}
+  \end{figure}
+The $\psi (2S)$ and $K_S^0$ are not directly detected in the detector. While $\psi (2S)$ mainly decays via strong interactions, it also decays via
+electromagnetic force into a lepton pairs ($l^+l^-$).
+Since the detector has the best efficiency for detecting muons, only muon pairs will be regarded ($\mu^+\mu^-$). Due to the conservation of energy and momentum, the 
+total mass of the muon pair is approximately equal to the mass of the $\psi (2S)$ meson. With cuts on the muon pair masses, the collected data can already be reduced to lesser signal candidates and explicetely
+rejects other charm resonances $c\bar{c}$.\\
+The dominant decay channel of $K_S^0$ is a pair of pions ($\pi^+\pi^-$) via weak interaction. The $K_L^0$ meson also consists of the superposition of $d\bar{s}$ and $\bar{d}s$ and has the same decay channels.
+However, the branching fraction of that decay channel is two magnitudes smaller than for the $K_S^0$ and will therefore not interfere with the relevant signal candidates to a significant level. The mass of the
+$K_S^0$ can therefore be reconstructed with the produced pion pairs.\\
+The given recorded data consists of various variables including kinematic properties of the muons, pions as well as the reconstructed $\psi (2S)$ and $K_S^0$ mesons. The $B_s^0$ can be reconstructed using the reconstructed
+properties of the $\psi (2S)$ and $K_S^0$ while using their true invariant masses, being $m_{\psi (2S)} = \qty{3686.097(0.011)}{\mega\electronvolt}$ and $m_{K_S^0} = \qty{497.611(0.013)}{\mega\electronvolt}$ \cite{PDG}.\\
+The recorded data set does not only include $B_s^0 \to \psi (2S)K_S^0$ signal. Moreover, it primarily contains combinatorial background, consisting of random particle tracks whose particle trajectories align with the
+signal decay. The much more abundant decay $B^0 \to \psi (2S)K_S^0$ is also included in the recorded data and dominated the signal region. To differentiate between background and signal, an extensive analysis including
+training a classifier is needed.\\
+To evaluate and optimise the classifier (maximising the number of signal candidates while keeping the background low), a loss function is to be minimised. The inverse of such loss functions is called figure of merit (FOM).
+In this analysis, the Punzi figure of merit for optmising the signal efficiency
+\begin{equation}
+    \label{eq:FOM}
+    \mathrm{FOM}  = \frac{\epsilon_{\mathrm{sig}}}{5/2 - \sqrt{N_{\mathrm{bkg}}}}
+\end{equation}
+is to be maximised with $N_{\mathrm{bkg}}$ being the background candidates in the signal region (combinatorial background + $B^0 \to \psi (2S)K_S^0$ events) and $\epsilon_{\mathrm{sig}}$ being the efficiency of classifying
+the signal efficiency. The signal efficiency is calculated by using a Monte Carlo simulation of $B_s^0 \to \psi (2S)K_S^0$. The significance in the signal region can be calculated by
+\begin{equation}
+    \label{eq:sign}
+    m = \frac{N_{\mathrm{sig}}}{\sqrt{N_{\mathrm{sig}} + N_{\mathrm{bkg}}}},
+\end{equation}
+using the given number of singal and background candidates by the classifier.\\
+To train an efficient and good Classifier, the right choice of variables is needed. One has to look for those variables, which differ the most for background and signal. To find these, one can caluclate the 
+largest distance between the cumulative probability distributions $F^i$ of these variables:
+\begin{equation}
+    \label{eq:Kolmogorov}
+    \sup\limits_{n} | F_n^1 - F_n^2 |,
+\end{equation}
+with the index n running over all bins of the distributions. 
