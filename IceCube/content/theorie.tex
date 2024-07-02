@@ -56,6 +56,7 @@ cause events with two nearby circular cascades. Further information on the IceCu
 \subsection{Feature Selection and Multivariate Analysis}
 In this section, the feature selection and machine learning algorithms that are employed in this analysis are briefly described.
 \subsubsection{mRMR Selection}
+\label{subsec:mRMR}
 In a mRMR (minimum redundancy, maximum relevance) selection, a set of variables (features) is iteratively selected that strongly correlates with the target (signal or background)
 and has a low redundancy (correlation between features). For this purpose, the joint information of two variables $x, y$
 \begin{equation}
@@ -65,6 +66,7 @@ and has a low redundancy (correlation between features). For this purpose, the j
 is considered, where $p(x/y)$ are the respective probability functions. Here, the mRMR implementation in the python package \textit{mrmr-selection} \cite{mrmr} is used.
 
 \subsubsection{Na\"ive Bayes Classifier}
+\label{subsec:Bayes}
 In a na\"ive bayes classifier, Bayes theorem on conditional probabilites
 \begin{equation}
     p(A|B) = \frac{p(B|A)p(A)}{p(B)}
@@ -89,6 +91,7 @@ the bias and variance of the classification are reduced, while the accuray is in
 Schreibe ich noch, je nachdem was Tom noch für classifier nimmt.
 
 \subsubsection{Evaluation Metrics}
+\label{subsec:Evaluation}
 In order to evaluate the performance of a classifier on the classification task, different metrics are used.
 The classification output can be grouped into four categories: Correctly classified signal events (true positives \enquote{\textit{tp}}), correctly classified background 
 (true negatives \enquote{\textit{tn}}), background events falsely classified as signal (false positives \enquote{\textit{fp}}) and signal events falsely classified as background
