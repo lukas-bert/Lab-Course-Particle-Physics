@@ -1,2 +1,121 @@
 \section{Analysis}
 \label{sec:Analysis}
+
+-Sth about dataset
+
+\subsection{Data preparation and attribute selection}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{content/plots/best_3_features.pdf}
+    \caption{...}
+    \label{fig:best_features}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{content/plots/worst_3_features.pdf}
+    \caption{...}
+    \label{fig:worst_features}
+\end{figure}
+
+\subsection{Multivariate selection}
+
+\subsubsection{Naives Bayes}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/apr_naive.pdf}
+    \caption{...}
+    \label{fig:apr_naive}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/f_beta_naive.pdf}
+    \caption{...}
+    \label{fig:f_beta_naive}
+\end{figure}
+
+GaussianNB Cross validation result:
+Accuracy: 0.827+/-0.005
+Precision: 0.873+/-0.006
+ROC: 0.9211+/-0.0033
+
+t_best_naive = 0.9899
+
+\subsubsection{Random Forest}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/apr_rdm.pdf}
+    \caption{...}
+    \label{fig:apr_rdm}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/f_beta_rdm.pdf}
+    \caption{...}
+    \label{fig:f_beta_rdm}
+\end{figure}
+RandomForestClassifier Cross validation result:
+Accuracy: 0.9403+/-0.0019
+Precision: 0.9544+/-0.0022
+ROC: 0.9829+/-0.0012
+
+t_best_rdm = 0.8889
+
+\subsubsection{k neares neighbor}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/apr_kNN.pdf}
+    \caption{...}
+    \label{fig:apr_kNN}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/f_beta_kNN.pdf}
+    \caption{...}
+    \label{fig:f_beta_kNN}
+\end{figure}
+
+kNN Cross validation result:
+Accuracy: 0.8839+/-0.0026
+Precision: 0.887+/-0.004
+ROC: 0.9403+/-0.0024
+
+t_best_kNN = 0.9394
+
+\subsection{Comparison of the learning algorithms}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{content/plots/ROC_all.pdf}
+    \caption{...}
+    \label{fig:f_ROC_all}
+\end{figure}
+
+ROC AUC score Naive Bayes: 	 0.9212
+ROC AUC score Random Forest: 	 0.9983
+ROC AUC score kNN: 		 0.9562
+
+% \begin{figure}
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{content/plots/apr_naive.pdf}
+%       \caption{...}
+%       \label{fig:roc_curve}
+%     \end{subfigure}
+%     % \hfill
+%     \begin{subfigure}{0.49\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{content/plots/f_beta_naive.pdf}
+%       \caption{...}
+%       \label{fig:train_test}
+%     \end{subfigure}
+%     \caption{...}
+%     \label{fig:BDT}
+%   \end{figure}
