@@ -65,6 +65,12 @@ and has a low redundancy (correlation between features). For this purpose, the j
 \end{equation}
 is considered, where $p(x/y)$ are the respective probability functions. Here, the mRMR implementation in the python package \textit{mrmr-selection} \cite{mrmr} is used.
 
+\subsection{Cross-validation}
+\label{sec:cross-validation}
+With the help of the cross-validation methods, quality parameters for a classifier can be determined. This is done by splitting the dataset into $n$ subsets. The classifier is then trained on $n-1$ subsets with the
+remaining subset being used to calculate the quality parameters. By perfoming $n$ iterations, so that each subset is once used as the test dataset, a total of $n$ values for each quality parameter is
+gathered. The mean and standard deviation can then be calculated.
+
 \subsubsection{Na\"ive Bayes Classifier}
 \label{subsec:Bayes}
 In a na\"ive bayes classifier, Bayes theorem on conditional probabilites
@@ -80,6 +86,7 @@ With $n$ attributes, the measure
 is used to distinguish between signal with $Q > 1$ and background.
 
 \subsubsection{Decision Trees}
+\label{subsec:decision_trees}
 Decision trees are binary classifiers, that separate between different classes by subsequently applying binary cuts on the available variables. 
 For each decision point (\textit{node}), the cut that maximes the separation between the classes is searched. The data is divided into two subsets after each cut, till a
 maximum number of cuts (depth) is reached or the classes are fully separated.
@@ -91,6 +98,7 @@ using $k$ randomly selected variables. To get a classification, the arithmetic m
 %the bias and variance of the classification are reduced, while the accuray is inreased.
 
 \subsubsection{$k$-Nearest Neighbours Classifier}
+\label{subsec:kNN}
 A $k$-Nearest Neighbours (\textit{kNN}) classifier is a so-called lazy learner, because the $k$NN algorithm has no training phase.
 The training data is saved in the classifier and a classification is performed by computing the euclidean distance of the event to classify to 
 all previously saved datapoints. The most frequent label (class) among the $k$ nearest neighbours (i.e. the saved training data) is then 
