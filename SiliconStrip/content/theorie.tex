@@ -23,7 +23,7 @@ is called bandgap. Depending on the bandgap, materials are categorised as metals
 \end{figure}
 Metals are characterised by overlapping conduction and valence bands and have no bandgap, therefore they are conductive. 
 For insulators, the bandgap is around $\qty{4}{\eV}$ or higher, which is why they are not conductive because the energy from thermal excitation 
-is much smaller ($\approx\qty{30}{\milli\eV}$). Semiconductors typically have a bandgap of 1 to $\qty{5}{\eV}$ and are also not conductive at 
+is much smaller ($\approx\qty{30}{\milli\eV}$). Semiconductors typically have a bandgap from 1 to $\qty{5}{\eV}$ and are also not conductive at 
 $T = \qty{0}{\kelvin}$. However, at roomtemperature electrons can be excited to the conduction band. The \enquote{hole} that they leave behind can be viewed as a quasiparticle that 
 carries a positive charge and has an effective mass. Silicon, which is used for the detector in this experiment, has a bandgap of $\qty{1.107}{\eV}$ and an intrinsic charge 
 carrier density of $\qty{1.5e10}{\centi\metre^{-3}}$. Silicon belongs to the \textit{element semiconductors}, other types are \textit{compound semiconductor} 
@@ -35,8 +35,8 @@ The intrinsic charge carrier density for pure (= intrinsic) semiconductors is of
 valence electrons are introduced
 into the crystal structure of a semiconductor to increase its conductivity. This process is called doping. Silicon has 4 valence electrons and forms a diamond lattice structure. 
 Silicon doped with pentavalent atoms, such as arsenic, is called a \textit{n-type} semiconductor. The fifth valence electron is not needed in the crystal bond and acts as a free 
-charge carrier on a new level in the band diagram right below the conduction band which is called \textit{donator level}. This effectively reduces the bandgap. 
-Electrons in the donator level can easily be excited to the conduction band which inreases conductivity. \\
+charge carrier on a new level in the band diagram right below the conduction band, which is called \textit{donator level}. This effectively reduces the bandgap. 
+Electrons in the donator level can easily be excited to the conduction band, increasing conductivity. \\
 Alternatively, trivalent atoms, like boron, can be used. The semiconductor is then called \textit{p-type}. The missing electron in the bond can be seen as a hole, that can
 move freely in the coulomb potential of the crystal lattice. A new level, called \textit{acceptor level}, arises in the band diagram right above the valence band.
 Electrons from the valence band can be excited to the acceptor level.
@@ -54,9 +54,9 @@ n-side and holes from the p-side diffuse towards the respective other side and r
 The stationary doping atoms are now missing an electron or hole and cause a positive charge at the n-side and a negative charge at the p-side, resulting in an electric field.
 Through the electric field, the remaining charge carriers drift in the opposite direction. When equilibrium is reached between drift and diffusion, a zone around the pn-junction 
 with no charge carriers is created - the \textit{depletion zone}. The difference in the potential of the two sides is called diffusion voltage $U_D$.
-By applying an external electric field (with bias voltage $U$), this effect is either weakened (+ on p-side, - on n-side) and a light emitting diode is created, or the effect is amplified 
-(+ on n-side, - on p-side) which increases the thickness of the depletion zone. This is the case for the detector operation of the diode. Electron-hole pairs created in the
-depletion zone (e.g. by a traversing particle) are drawn to the p- and n-side which generates a measurable current.
+By applying an external electric field (with bias voltage $U$), this effect is either weakened (+ on p-side, - on n-side) and a light emitting diode is created, or amplified 
+(+ on n-side, - on p-side), increasing the thickness of the depletion zone. This is the case for the detector operation of the diode. Electron-hole pairs created in the
+depletion zone (e.g. by a traversing particle) are drawn to the p- and n-side, generating measurable current.
 The thickness of the depletion zone depends on the applied voltage and can be calculated as 
 \begin{equation}
     d(U) = \sqrt{\frac{2\varepsilon (U_D + U)}{qN_\text{eff}}},
@@ -95,7 +95,7 @@ is plotted against the bias voltage.
     The depletion voltage can be read from the plot as $\qty{60}{\volt}$.}
     \label{fig:leakage_current}
 \end{figure}
-As can be seen from the plot, the leakage current strongly increases, until the depletion voltage $U_\text{dep}$ is reached and then continues to increas linearly.
+As can be seen from the plot, the leakage current strongly increases, until the depletion voltage $U_\text{dep}$ is reached and then continues to increase linearly.
 From this measurement, the value of the depletion voltage can be obtained.
 
 \subsection{Interaction of ionising radiation with matter}
@@ -103,11 +103,11 @@ In this experiment, the EASy detector system is employed to measure ionising par
 Therefore, it is important to understand the energy deposition of ionising particles in matter.
 
 \subsubsection{The beta decay}
-In general, the beta decay proceeds over 
+The beta decay can be described by the interaction
 \begin{equation*}
     n \to p + e^- + \bar{\nu_e}.
 \end{equation*}
-The free binding energy is randomly distributed to the decay products (i.e. the electron and neutrino), resulting in an energy spectrum of the electron as shown in 
+The free binding energy is randomly distributed to the decay products (i.e. the electron and antineutrino), resulting in an energy spectrum of the electron as shown in 
 \autoref{fig:beta_spectrum}.
 \begin{figure}
     \centering 
@@ -137,7 +137,7 @@ When traversing a material, the electrons interact with the nuclei and electrons
 is not large enough, bremsstrahlung, inelastic collisions with the nuclei and Cherenkov radiation are not considered. The relevant effect here, is the ionisation of the atoms by 
 collisions of the incoming electrons with shell electrons. The average energy loss per distance of the electron is given by the modified Bethe-Bloch equation \cite{Leo1987}
 \begin{equation}
-    -\frac{\symup{d}E}{\symup{d}x} = 2 \mathrm{\pi} N_\text{A} m_e c \rho \frac{Z}{A} \frac{1}{\beta^2}
+    -\frac{\symup{d}E}{\symup{d}x} = 2 \symup{\pi} N_\text{A} m_e c \rho \frac{Z}{A} \frac{1}{\beta^2}
     \left[ \symup{ln}\left(\frac{\tau^2(\tau +2)}{2(I/m_ec^2)^2}\right) + F(\tau) -\delta -2 \frac{C}{Z}\right].
     \label{eq:bethe_bloch}
 \end{equation}
@@ -161,13 +161,13 @@ in \autoref{fig:energy_deposition}.
 \subsection{Pedestals and Noise}
 \label{ch:ped}
 In this experiment, the charge deposition is given in counts of the analogue-to-digital converter (ADC counts) and therefore has to be converted to $\unit{\kilo\eV}$ 
-on the basis of a calibration measurement. The calibration generates a specified amount of electron-hole pairs which are then converted into ADC counts.
+on the basis of a calibration measurement. The calibration generates a specified amount of electron-hole pairs which are then converted into $\unit{\kilo\eV}$.
 To create one electron-hole pair in silicon, an energy of $\qty{3.6}{\eV}$ \cite{SiliconStrip} is required.
 
 When measuring, the ADC counts always include noise. In order to get the signal count, all unwanted effects have to be subtracted.
 In total, the measured ADC counts for a signal $k$ at strip $i$ is given by 
 \begin{equation}
-    \text{ADC}(i, k) = \text{P}(i, k) + \text{D}(i,k) + \text{Signal}(i, k) + \text{Noise}(i, k).
+    \text{ADC}(i, k) = \text{P}(i, k) + \text{D}(i,k) + \text{Signal}(i, k).
     \label{eq:ADC}
 \end{equation}    
 The \textit{pedestal} $\text{P}(i, k)$ is the mean value of ADC counts for a strip without external signal and can be calculated via 

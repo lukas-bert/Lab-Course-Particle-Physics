@@ -1,8 +1,8 @@
 \section{Analysis}
 \label{sec:Analysis}
-This section focuses on the analysis of the measured data. Because of a malfunctioning cable connection, many of the tasks could not be completed and for those
-that data could be taken, the trustworthiness can be questioned. The data for all of the tasks, except for the measurement of the current-voltage characteristic,
-were kindly provided by our supervisor.
+This section focuses on the analysis of the measured data. Because of a malfunctioning cable connection, many of the tasks could not be completed.
+For those tasks that were completed, the trustworthiness of the data can be questioned. 
+The data for all of the tasks, except for the measurement of the current-voltage characteristic, were kindly provided by our supervisor.
 
 \subsection{Current - voltage characteristic}
 \label{sec:current-voltage characteristic}
@@ -10,8 +10,8 @@ In a first step, the sensor current $I$ is measured as a function of the applied
 \begin{figure}
     \centering
     \includegraphics[width = 0.8\textwidth]{build/leakage.pdf}
-    \caption{Plot of the measured current $I$ dependent on the applied voltage $U$. The depletion voltage $U_{\mathrm{dep}} = \qty{60}{\volt}$ is shown as
-    the dahed line.}
+    \caption{Measured current $I$ dependent on the applied voltage $U$. The depletion voltage $U_{\mathrm{dep}} = \qty{60}{\volt}$ is shown as
+    the dashed line.}
     \label{fig:U_dep}
 \end{figure}
 By comparing this plot with the theoretical prediction \autoref{fig:leakage_current}, the depletion voltage $U_{\mathrm{dep}}$ is determined by identifying a kink
@@ -21,7 +21,7 @@ In the following, a bias voltage of \qty{80}{\volt} is used to ensure that the d
 
 \subsection{Pedestals, noise and common mode shift}
 Like all electronic devices, silicon strip detectors are prone to electronic noise. Following \autoref{eq:ADC}, the ADC counts consist not only of the signal
-but also the pedestal $P(i,k)$, the common mode shift $D(k)$ and the noise $N(i)$. 
+but also of the pedestal $P(i,k)$, the common mode shift $D(k)$ and the noise $N(i)$. 
 For the determination of these quantities, the ADC counts for the strips are measured and used to calculate the target values.
 The counts of each individual strip without external signal is called the pedestal $P(i,k)$ and is calculated via \autoref{eq:pedestals}. A graphic representation
 is given in \autoref{fig:pedestals}. 
@@ -48,7 +48,7 @@ the data are represented in \autoref{fig:noise}.
         \caption{Noise $N(i)$.}
         \label{fig:noise}
       \end{subfigure}
-    \caption{Visualization representation of the pedestal $P(i,k)$, common mode shift~$D(k)$ and noise $N(i)$.}
+    \caption{Visual representation of the pedestal $P(i,k)$, common mode shift~$D(k)$ and noise $N(i)$.}
     \label{fig:pedestal_etc}
   \end{figure}
 
@@ -58,7 +58,7 @@ distribution with increasing noise at the sensors' edges is present.
 \subsection{Calibration measurements}
 \label{sec:analysis_calib}
 A proper calibration of the system is necessary to ensure a good quality of the data. Therefore, the delay time is optimized by performing a delay scan and determining
-the maximum value and entering this value into the GUI of the program.\footnote{The data to this are unfortunately lost because of the complications we had with the setup.
+the maximum value and entering this value into the GUI of the program.\footnote{The data to this are unfortunately lost because of the complications that occured with the setup.
 A similar calibration is performed for the laser synchronization run in \autoref{sec:characteristics_strip_sensor}.}\\
 Moreover, a calibration run for five different channels is carried out. For this, a known charge is injected and the ADC counts are measured. Additionally, one
 calibration run for a bias voltage of $U_{\mathrm{bias}}=\qty{0}{\volt}$ is executed. In the diagrams of \autoref{fig:calib}, the calibration runs are depicted.
@@ -87,11 +87,12 @@ function. This is performed in \autoref{fig:calib_polyfit}.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{build/calib_polyfit.pdf}
-    \caption{Plot of the injected charge and corresponding ADC counts. A forth degree polynominal fuction is fitted to the data.}
+    \caption{Injected charge and corresponding ADC counts. A forth degree polynominal fuction is fitted to the data.}
     \label{fig:calib_polyfit}
 \end{figure}
-With the help of the \texttt{python} extension \texttt{scipy}~\cite{scipy}, the parameters for
-a polynominal of the form $f(x) = a + bx + cx^2 + dx^3 + ex^4$ are extracted as
+%With the help of the \texttt{python} extension \texttt{scipy}~\cite{scipy}, 
+The parameters for
+a polynominal of the form $f(x) = a + bx + cx^2 + dx^3 + ex^4$ are extracted by a fit to the data as
 \begin{align*}
     a &= \qty{1.2(0.4)e3}{\per\raiseto{0}\elementarycharge} \\
     b &= \qty{151+-19}{\per\raiseto{1}\elementarycharge} \\
@@ -133,9 +134,9 @@ in \qty{10}{\micro\metre} intervals along the sensor. The ADC counts are measure
     \label{fig:laser_scan}
 \end{figure}
 
-It is clear that the laser is focused on the strips with the channels 83 and 84. The ADC counts of these channels are further considered for the determination of 
-the chips' characteristics (see \autoref{fig:laser_channel_83_84}). The pitch of the sensor can be measured by calculating the distance between the maxima of the ADC counts. The width of the strips follows
-from the width of the peaks. 
+It is clear that the laser is focused on the strips corresponding to the channels 83 and 84. The ADC counts of these channels are further considered for the determination of 
+the chips' characteristics (see \autoref{fig:laser_channel_83_84}). The pitch of the sensor can be measured by calculating the distance between the maxima of the ADC counts. 
+The width of the laser beam follows from the distance between the minimum and maximum of a peak. 
 \begin{figure}
     \centering
     \begin{subfigure}{0.49\textwidth}
@@ -169,30 +170,30 @@ from the width of the peaks.
 
 
 \subsection{Charge collection efficiency}
-In this part of the analysis, the charge collection efficiency (CCE) is determined in two manners. First, the laser is used to excite the sensor where a $\beta^-$ 
+In this part of the analysis, the charge collection efficiency (CCE) is determined in two manners. First, the laser is used to excite the sensor, while a $\beta^-$ 
 source is employed later.
 
 \subsubsection{CCEL}
-With the help of a laser, that is sharply focused on one strip of the sensor, the CCE can be delibereated. Again, the ADC counts are recorded but this time the
-bias voltage is varied. Similar to the laser scan, the results are shown in a colormap, see \autoref{fig:ccel}.
-\begin{figure}
-    \centering
-    \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width = \textwidth]{build/ccel.pdf}
-        \caption{All channels.}
-        \label{fig:ccel_all_channels}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width = \textwidth]{build/ccel_mag.pdf}
-        \caption{Magnification of relevant channels.}
-        \label{fig:ccel_mag}
-    \end{subfigure}
-    \caption{CCE laser scan: the ADC counts are depicted for each channel against the applied bias voltage.}
-    \label{fig:ccel}
-\end{figure}
+With the help of a laser, that is sharply focused on one strip of the sensor, the CCE can be analyszed. The ADC counts are recorded while varying the bias voltage. 
+%Similar to the laser scan, the results are shown in a colormap, as can be seen in \autoref{fig:ccel}.
+%\begin{figure}
+%    \centering
+%    \begin{subfigure}{0.49\textwidth}
+%        \includegraphics[width = \textwidth]{build/ccel.pdf}
+%        \caption{All channels.}
+%        \label{fig:ccel_all_channels}
+%    \end{subfigure}
+%    \hfill
+%    \begin{subfigure}{0.49\textwidth}
+%        \includegraphics[width = \textwidth]{build/ccel_mag.pdf}
+%        \caption{Magnification of relevant channels.}
+%        \label{fig:ccel_mag}
+%    \end{subfigure}
+%    \caption{CCE laser scan: the ADC counts are depicted for each channel against the applied bias voltage.}
+%    \label{fig:ccel}
+%\end{figure}
 
-The penetration depth of the laser can be reconstructed by fitting \autoref{eq:CCE} to data of the relevant channel from \autoref{fig:ccel}.
+The penetration depth of the laser can be reconstructed by fitting \autoref{eq:CCE} to the data of the relevant channel.
 Therefore, the ADC counts need to be normalized to their maximum. In theory, the ADC counts reach a plateau for values of the bias voltage greater 
 than the depletion voltage. Because of imperfections, the measured plateau is not strictly constant. As a solution to this, the values are normalized to the
 mean value of the plateau. \\
@@ -209,8 +210,8 @@ The free parameter $a$ from \autoref{eq:CCE} is identified as the penetration de
 \end{figure}
 
 \subsubsection{CCEQ}
-Analogous to the previous analysis step, the measurement of the CCE with a $\beta^-$ source yields a plot of the ADC counts in dependence of the bias voltage.
-This plot, represented in \autoref{fig:ccel_channel_82} is similar to the laser CCE scan (\autoref{fig:ccel_channel_82}). For bias voltages greater than
+Analogously to the previous analysis step, the measurement of the CCE with a $\beta^-$ source yields a plot of the ADC counts in dependence of the bias voltage.
+This plot, represented in \autoref{fig:cceq} is similar to the laser CCE scan (\autoref{fig:ccel_channel_82}). For bias voltages greater than
 the depletion voltage of $U_\mathrm{dep} = \qty{80}{\volt}$ the ADC counts are mostly constant.
 \begin{figure}
     \centering
@@ -223,7 +224,7 @@ the depletion voltage of $U_\mathrm{dep} = \qty{80}{\volt}$ the ADC counts are m
 \label{sec:large_q}
 In the final part of the measurement series, the sensor is exposed to the source for a total of approximately \num{1000000} events. In \autoref{fig:large_q_scan}, 
 the data for this large source scan are represented. \autoref{fig:no_cluster} shows the number of clusters that each event caused. The number of responding channels
-to each cluster ist depicted in \autoref{fig:no_channels}. Here, no more than five different channels were triggered. The distribution of all the counts on all the
+to each cluster is depicted in \autoref{fig:no_channels}. Here, no more than five different channels were triggered. The distribution of all the counts on all the
 channels is given in \autoref{fig:large_q_hitmap}. The shape of the distribution suggests that the source was focused at the strips corresponding to the channels
 70 to 90.
 \begin{figure}
@@ -249,7 +250,7 @@ channels is given in \autoref{fig:large_q_hitmap}. The shape of the distribution
     \label{fig:large_q_scan}
   \end{figure}
 
-  When binning the ADC counts for this large source scan, a maximum can be determined. With the help of the previously calculated correlation function of the 
+  When binning the ADC counts for this large source scan, a maximum can be determined. With the help of the previously found correlation function between the 
   ADC counts and charge (see \autoref{sec:analysis_calib}), the energy spectrum can be extracted. Therefore, the charge needed to create electron-hole pairs of
   \qty{3.6}{\electronvolt} needs to be accounted for. The resulting distribution is displayed in \autoref{fig:large_q_energy}.
 
@@ -270,7 +271,7 @@ channels is given in \autoref{fig:large_q_hitmap}. The shape of the distribution
     \label{fig:large_q_adc_energy}
 \end{figure}
 
-The mean value of the energy as well as the most probable value are read off as
+The mean value of the energy, as well as the most probable value are read off as
 \begin{align*}
     E_{\mathrm{mean}} &= \qty{135.94}{\kilo\electronvolt} \\
     E_{\mathrm{MPV}}  &= \qty{89}{\kilo\electronvolt}. \\

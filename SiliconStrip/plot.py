@@ -86,6 +86,9 @@ for i in index:
 
 calib_charge["Channel_100_0"], calib_adc["Channel_100_0"] = np.genfromtxt(f"content/data/BertschHacheneyTroska/Calib/100_0.txt", unpack=True)
 
+calib_adc_mean = np.mean(np.array([calib_adc["Channel_5"], calib_adc["Channel_20"], calib_adc["Channel_50"], calib_adc["Channel_87"], calib_adc["Channel_100"]]), axis=0)
+calib_adc_std = np.std(np.array([calib_adc["Channel_5"], calib_adc["Channel_20"], calib_adc["Channel_50"], calib_adc["Channel_87"], calib_adc["Channel_100"]]), axis=0)
+
 fig, ax = plt.subplots()
 for i in index:
     ax.plot(calib_charge[f"Channel_{i}"], calib_adc[f"Channel_{i}"], "x", ms=0.8, label = f"Channel {i}")
@@ -100,16 +103,17 @@ plt.close()
 
 fig, ax = plt.subplots()
 ax.plot(calib_charge[f"Channel_100_0"], calib_adc[f"Channel_100_0"], "x")
+ax.errorbar(calib_charge["Channel_5"], calib_adc_mean, yerr=calib_adc_std, elinewidth=0.2, ls="None", marker="x", markersize=2, markeredgewidth=0.3, 
+            capsize=0.2, barsabove=True, ecolor="firebrick", label="Mean of all channels")
 fig.tight_layout()
 fig.savefig(f"build/calib_channel_100_0.pdf")
 plt.close()
 
 # Plot means
-calib_adc_mean = np.mean(np.array([calib_adc["Channel_5"], calib_adc["Channel_20"], calib_adc["Channel_50"], calib_adc["Channel_87"], calib_adc["Channel_100"]]), axis=0)
-calib_adc_std = np.std(np.array([calib_adc["Channel_5"], calib_adc["Channel_20"], calib_adc["Channel_50"], calib_adc["Channel_87"], calib_adc["Channel_100"]]), axis=0)
 
 fig, ax = plt.subplots()
-ax.errorbar(calib_charge["Channel_5"], calib_adc_mean, yerr=calib_adc_std, elinewidth=0.2, ls="None", marker="x", markersize=2, markeredgewidth=0.3, capsize=0.2, barsabove=True, ecolor="firebrick", label="Mean values")
+ax.errorbar(calib_charge["Channel_5"], calib_adc_mean, yerr=calib_adc_std, elinewidth=0.2, ls="None", marker="x", markersize=2, markeredgewidth=0.3, 
+            capsize=0.2, barsabove=True, ecolor="firebrick", label=r"Mean of all channels @ $U_{\mathrm{bias}} = \qty{80}{\volt}$")
 ax.plot(calib_charge["Channel_100_0"], calib_adc["Channel_100_0"], marker="x", markersize=2, markeredgewidth=0.3, ls="None", label=r"$U_{\mathrm{bias}} = \qty{0}{\volt}$")
 
 ax.set_xlabel(r"$\text{Charge} \mathbin{/} \mathrm{e}$")
@@ -333,7 +337,7 @@ number_cluster = np.genfromtxt("content/data/number_of_clusters.txt", unpack=Tru
 fig, ax = plt.subplots()
 
 ax.bar(np.linspace(0,127, 128), number_cluster)
-
+ax.set_yscale("log")
 ax.set_xlabel("Number of clusters")
 ax.set_ylabel("Counts")
 
@@ -348,11 +352,11 @@ number_channels = np.genfromtxt("content/data/cluster_size.txt", unpack=True)
 fig, ax = plt.subplots()
 
 ax.bar(np.linspace(0,127, 128), number_channels)
-
+ax.set_yscale("log")
 ax.set_xlabel("Channels per Cluster")
 ax.set_ylabel("Counts")
 
-ax.set_xlim(-1,9)
+ax.set_xlim(0, 20)
 
 fig.tight_layout()
 fig.savefig("build/number_channels.pdf")

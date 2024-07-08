@@ -16,7 +16,7 @@ amplified in the BEETLE chip and converted into a voltage signal, which can late
 The signal is kept in a pipeline by the BEETLE chip, until there is an incoming triggering signal from the control unit. Only then will the recorded signal
 be passed on to the control unit and computer. If there is no trigger signal, the data is discarded.\\
 The depletion voltage of the used semiconductor is usually about $\qty{60}{} -  \qty{70}{\volt}$~\cite{SiliconStrip}. It can be controlled and adjusted
-via a knob on the control unit. Knowing the exact depletion voltage will be one of the first measuring tasks, such that the following
+via a knob on the control unit. Knowing the exact depletion voltage is one of the first measuring tasks, such that the following
 tasks can be carried out using the highest efficiency possible. The detecor unit can be seen in \autoref{fig:detector_unit}.
 \begin{figure}
     \centering
@@ -58,7 +58,7 @@ $D$ is the thickness of the sensor, $d_c$ is the thickness of the depletion zone
 the laser into the silicon. The used sensor has a thickness of $D = \qty{300}{\micro\metre}$. For the source measurement and
 therefore the excitation with electrons, the CCE is proportional to $d_c$.\\
 The used laser is supplied with energy and controlled via the control unit. A fiber cable transfers the $\qty{5}{\nano\second}$ long laser pulses from
-the control unit to the detector unit. The platform has to be in the "L" position for those measurements. It has a 
+the control unit to the detector unit. The platform has to be in the "L" position for those measurements. The laser has a 
 wavelength of $\qty{980}{\nano\metre}$, a diameter of $\qty{20}{\micro\metre}$ and a peak power of $\qty{0.6}{\milli\watt}$.\\
 The horizontal and vertical position of the laser output into the sensor can be adjusted with micrometer screws with an accuracy
 of $\qty{10}{\micro\metre}$~\cite{SiliconStrip}.
@@ -70,21 +70,21 @@ data into ADC Counts which can be recorded with the computer. The leakage curren
 the control unit. It can be read out with an accuracy of $\qty{0.01}{\micro\ampere}$~\cite{SiliconStrip}.\\
 As explained in \autoref{ch:ped}, a lot of noise by the source measurement is also recorded and converted into ADC counts by the detector and control unit.
 To distinguish between background and relevant data, a signal-to-noise cut is applied to the data. This signal-to-noise ratio 
-can be chosen freely and is set as 5 standard deviations here. If the signal is five standard deviations higher than the noise, it is considered for the analysis.
+can be chosen freely and is set as 5 standard deviations here. If the signal is at least five standard deviations higher than the noise, it is considered for the analysis.
 Otherwise it is discarded.\\
 Another source of noise is also the triggering of multiple sensors by only one real signal. This happens, when
 a particle passes near the edge of a strip. The created voltage can cause other strips to fire as well. Another effect
-would be crosstalk, where a particle crosses perpendicular to the surface and therefore through multiple strips.
+would be crosstalk, where a particle does not cross perpendicular to the surface and therefore through multiple strips.
 
 \subsection{Measuring tasks}
 
-The measuring tasks in \ref{measure:4} and \ref{measure:5} use the laser. For these tasks, the fibre optic cable
+The measuring tasks in \ref{measure:4} and \ref{measure:5} require the usage of the laser. For these tasks, the fibre optic cable
 needs to be plugged into the detector unit and the detector needs to be in the "L" position.\\
 For the measuremets in \ref{measure:5} and \ref{measure:6} the source is used. For this purpose, the detector unit needs
 to be put into the box with the source. The detection unit is additionally covered with lead bricks, to prevent radiation to come 
-out of the experimental setup. It is still advised not to directly stand over or under the source, since there is no 
-lead protection. The pedestal needs to be put into the "Q" position and an additional LEMO cable must be plugged into
-the diode trigger of the detector unit and into the control unit. The carbon plate with the source needs to be directly on top
+out of the experimental setup. %It is still advised not to directly stand over or under the source, since there is no lead protection. 
+The pedestal needs to be put into the "Q" position and an additional LEMO cable must be plugged into
+the diode trigger of the detector unit and into the control unit. The carbon plate with the source needs to be directly put on top
 of the sensor. The used setup for the source measurements and the process is shown in \autoref{fig:source_mes}. \\
 For the 
 source measurements, an additional diode is used, which is placed a few millimetres below the sensor. It ensures, that only
@@ -105,7 +105,8 @@ The current-voltage characteristic is measured by adjusting the bias voltage in 
 the depletion voltage can be extracted. The bias voltage of $\qty{0}{\volt}$ must be carefully set from a higher voltage,
 since rotating the knob for the bias to the lowest possible voltage actually applies a voltage in forward direction which causes
 the semiconductor to conduct.\\
-A bias voltage at least $\qty{20}{\volt}$ higher than the estimated depletion voltage is to be applied for the following measurements.
+The following measurements require a bias voltage at least $\qty{20}{\volt}$ above the estimated depletion voltage.
+%A bias voltage at least $\qty{20}{\volt}$ higher than the estimated depletion voltage is to be applied for the following measurements.
 
 \subsubsection{Pedestals and noise}
 \label{measure:2}
@@ -118,8 +119,7 @@ common mode represented graphically.
 First, the optimal delay has to be determined. For this, the control unit sends a defined delayed electron pulse to the BEETLE chip,
 via the ribbon cable. This is needed to convert the recorded ADC counts into charge and to interpret the data in the following
 tasks. The BEETLE chip transmits the measured ADC counts to the control unit. The ADC counts are then plotted against
-the used charge. Like this, a calibration curve is obtained which can be used to convert the ADC counts of the following
-tasks into charge.\\
+the used charge, to obtain a calibration curve for converting the ADC counts into charge.\\
 To do this, first, a "Delay Measurement" is started. This measures the amount of data obtained for different delays between
 the signal and the readout of the signal. The peak of the obtained data series is the best possible delay and is used 
 for the following measurements.\\
@@ -133,7 +133,7 @@ the depletion voltage.
 In this task, the structure of the sensor strips is to be observed. First, the optimal delay between the laser
 and the BEETLE chip is measured by using the "Laser Sync." option in the GUI. With the optimal delay applied, 
 35 measurements with each $\qty{1000}{}$ recorded events are carried out. Each measuring point should cover an interval
-of $\qty{10}{\micro\metre}$. The signal of relevant strips is to the plotted as a function of the laser position. 
+of $\qty{10}{\micro\metre}$. The signal of relevant strips is to be plotted as a function of the laser position. 
 The extension of the laser is to be determined and the number of strips is to be noted.
 
 \subsubsection{Charge Collection Efficiency}
