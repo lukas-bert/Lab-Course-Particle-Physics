@@ -29,6 +29,6 @@ discarded as well. Also, unphysical parameters (e.g Monthe Carlo truth attribute
 attribute of the simulation include binary values for either signal (\texttt{1}) or background (\texttt{0}).\\
 The given data set includes $\approx 100$ attributes. An attribute selection is performed, to reduce the dimensionality and computing time for the classification task. For this, the mRMR method explained
 in \autoref{subsec:mRMR} is applied. After extracting the most useful features, a Multivariate Learner is trained to efficiently separate signal and background. In this analysis, a \textit{na\"ive Bayes classifier} (\autoref{subsec:Bayes})
-, \textbf{INSERT HERE THE OTHER TWO USED METHOD AND CITE THEORY} \autoref{...} are trained and evaluated using the Precision and Recall (\autoref{subsec:Evaluation}) for different thresholds $\tau_c$. The best threshold is the chosen by 
+, a Random Forest classifier \autoref{subsec:decision_trees} as well as a kNN classifier \autoref{subsec:kNN} are trained and evaluated using the Precision and Recall (\autoref{subsec:Evaluation}) for different thresholds $\tau_c$. The best threshold is the chosen by 
 using the $f_{\beta}$ score. Additionally, ROC curves are plotted and the area under the ROC curve $A_{\mathrm{ROC}}$ is calculated to evaluate the classifier performance independently of the threshold.\\
 The final labels of the real data are then predicted by the model with the best achieved performance.
