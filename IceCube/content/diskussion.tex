@@ -5,13 +5,13 @@ To classify 4000 given events as signal or background, a Naive Bayes classifier,
 trained using the ten most relevant features of the dataset according to a mRMR selection. The performance of the classifiers was evaluated using
 the area under the ROC curve $A_{\mathrm{ROC}}$, the accuracy and the precision. The final values of the $A_{\mathrm{ROC}}$ for the classifiers are
 \begin{align*}
-    A_{\mathrm{ROC, Bayes}} &= \num{0.9400+-0.0023} 
-    A_{\mathrm{ROC, RF}} &= \num{0.9829(0.0012)}
+    A_{\mathrm{ROC, Bayes}} &= \num{0.9400+-0.0023} \\
+    A_{\mathrm{ROC, RF}} &= \num{0.9829(0.0012)} \\
     A_{\mathrm{ROC, kNN}} &= \num{0.9211 \pm 0.0033}.
 \end{align*}
-While all three classifiers yield very good results, the Random Forest performs best on the test subset. Therefore, this model is chosen for the 
+\\While all three classifiers yield very good results, the Random Forest performs best on the test subset. Therefore, this model is chosen for the 
 final prediction of the labels.\\
-To achive even higher scores for the quality of the predictions, one can optimize the number of input features and in general put more
+To achieve even higher scores for the quality of the predictions, one can optimize the number of input features and in general put more
 effort into data preparation before training the model. This can be done by scaling the input parameters to achieve a better distinction 
 between the distributions of the used features.\\
 According to the confusion matrices of the classifiers, most misclassified events are background events being classified as signal. This is
