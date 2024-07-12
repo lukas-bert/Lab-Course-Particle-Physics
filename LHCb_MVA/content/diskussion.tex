@@ -1,15 +1,16 @@
 \section{Discussion}
 \label{sec:Discussion}
-The analysis of the data used for the study of the decay \printBstoPsiKs \: yields a number of signal events of $n_\text{sig} = \num{43}$ and a number of background events of $n_\text{bkg} = \num{30}$
-with a significance proxy of $m = \num{5.07}$. Several aspects need to be considered for the validity of these numbers. \\
+The analysis of the data used for the study of the decay \printBstoPsiKs \: yields a number of signal events of $n_\text{sig} = \num{45}$ and a number of background events of $n_\text{bkg} = \num{32}$
+with a significance of $m = \num{5.1}$. Several aspects need to be considered for the validity of these numbers. \\
 First, the BDT seems to be slightly overfitted as can be seen in \autoref{fig:train_test}. Here, marginally more signal events are classified in the test data as in the training data.
-This could be overcome with further training of the BDT by implementing and optimizing different hyperparameters. \\
-Additionally, the signal of the $B^0_s$ decay is substantially smaller than the signal of the $B^0_d$ decay and in the lower energy spectrum less background could be removed. A possible explanation
-for this is that only the upper sideband was used for the training of the classifier. By adding data of the lower sideband or using variables that are less correlated to the mass, an enhanced background reduction
-could potentially be achieved. \\
+This could be overcome with further training of the BDT by implementing and optimizing different hyperparameters.
+Additionally, the signal of the $B^0_s$ decay is substantially smaller than the signal of the $B^0_d$ decay. \\ %and in the lower energy spectrum less background could be removed. A possible explanation
+%for this is that only the upper sideband was used for the training of the classifier. By adding data of the lower sideband or using variables that are less correlated to the mass, an enhanced background reduction
+%could potentially be achieved. \\
+% Keine Ahnung was man anstelle dessen noch schreiben könnte tbh
 A further aspect, that could be improved, is the fit model of the signal peaks. In general, these peaks are not symmetric but in this analysis a double gaussian fit is performed. A more complex model has 
 the potential to optimize the fit. \\
-For the significance proxy of about five sigma, it is to note that uncertainties were not considered for the calculation of this value so that the proxy likely overestimates the significance.
+For the significance of about five sigma, it is to note that uncertainties were not considered for the calculation of this value so that the results overestimates the significance.
 
 %- BDT bisschen overfitted (siehe fig:train_test, die roten Punkte links sind über den roten Balken, ist aber logarithmisch also ok denke ich.)
 % -> optimize BDT training -> different hyperparameters, aber ist halt computational effort

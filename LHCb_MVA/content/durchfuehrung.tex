@@ -28,16 +28,16 @@ Because of the large number of potential events, a trigger system is used to ide
 
 \section{Analysis strategy}
 \label{sec:strategy}
-The data used in this analysis consists of three different data samples. One is the actual measured data, which contains reconstructed \printBtoPsiKs \: candidates
-and is dominated by combinatorial background and a $B^0_d$ peak. The two other datasets are Monte Carlo simulation samples of the signal decay \printBstoPsiKs \: 
-and the control channel decay \printBdtoPsiKs. \\
-First, the training samples for the background and the signal need to be defined. In the case for the data of \printBdtoPsiKs \: decays, the background is predominatly combinatorial. The recorded LHCb 
-data is used for the training of this classifer. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
+The data used in this analysis consists of three different data samples. One is the actual measured data, which contains reconstructed $B^0_{(s)} \to \psi(2S)K^0_S$ \: candidates
+and is dominated by combinatorial background. The two other datasets are Monte Carlo simulation samples of the signal decay \printBstoPsiKs \: 
+and the control channel \printBdstoPsiKs. \\
+First, the training samples for the background and the signal need to be defined. In the case for the data of \printBdstoPsiKs \: decays, the background is predominatly combinatorial. The recorded LHCb 
+data is used for the training of this classifier. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
 The training samples for the signal classification cannot be sourced from the recorded data but must be simulated with Monte Carlo simulations. This leads to the problem of imperfect simulation data 
 that does not match the true data of the decay. This is due to not perfect theoretical models and computing constraints. The challenges of this problem can at least be partially overcome by introducing 
 computing weights. The here provided simulation data contain a variable called \texttt{kinematic\_weights} that helps to correct for the mismatches between simulation and recorded data. \\
 Feature selection is another important aspect of this analysis. The classifier uses a number of features to decide whether the data is background or signal. Features, that can be used here, are extracted
-from the control channel \printBtoPsiKs. This decay is similar to the decay \printBstoPsiKs \: and therefore its features can be fed to the classifer.
+from the control channel \printBtoPsiKs. This decay is similar to the decay \printBstoPsiKs \: and therefore its features can be fed to the classifier.
 In principle, any number of features can be used by a classifier but the runtime scales with the number of features and too many features will eventually lead to overfitting. Some of the here provided features
 are also redundant and do not include additional information. \\
 For the purpose of ascertaining the best classification threshold, the FOM (\autoref{eq:FOM}) is determined by calculating the signal efficiency and number of background events

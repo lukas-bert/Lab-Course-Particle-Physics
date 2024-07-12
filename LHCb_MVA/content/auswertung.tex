@@ -1,6 +1,6 @@
 \section{Analysis}
 \label{sec:Analysis}
-This analysis uses measured data with \printBtoPsiKs \: candidates and Monte Carlo simulations of \printBstoPsiKs \: and \printBdtoPsiKs \: decays. %so okay?
+At first, the invariant mass distributions of the reconstructed \printBdstoPsiKs are inspected for the simulation and real data.
 In \autoref{fig:mass_signal}, the invariant mass distribution of the reconstructed $B^0_s$ events in the signal simulation is shown.
 As expected, a clear peak at the $B^0_s$ mass can be seen.
 \begin{figure}
@@ -9,7 +9,7 @@ As expected, a clear peak at the $B^0_s$ mass can be seen.
   \caption{Invariant mass distribution of the $B^0_s$ candidates for the signal channel simulation data.}
   \label{fig:mass_signal}
 \end{figure}
-The mass distribution of the reconstructed $B^0$ candidates in real data can be seen in \autoref{fig:mass_data}. Here, a peak at the nominal $B^0_d$ mass can be seen. However,
+The mass distribution of the reconstructed $B^0$ candidates in real data can be seen in \autoref{fig:mass_data}. Here, a peak at the nominal $B^0$ mass can be seen. However,
 due to dominating combinatorial background, no peak at the $B^0_s$ mass is visible.
 \begin{figure}
   \centering
@@ -35,13 +35,14 @@ Subsequently, the upper sideband (\enquote{\textit{USB}}), containing mostly com
 
 \subsection{Feature selection}
 In order to train a multivariate classifier capable of separating signal from background, meaningful features from all available variables in the dataset 
-have to be extracted. In total, $\num{863}$ variables are listed in the dataset. After removing event, utility, trigger and spatial coordinate variables, $\num{398}$ variables remain.
+have to be selected. In total, $\num{863}$ variables are listed in the dataset. After removing event, utility, trigger and spatial coordinate variables, $\num{398}$ variables remain.
 For these variables, the correlation to the invariant mass is calculated and variables having a correlation coefficient of $\num{0.3}$ or higher are excluded.
 Variables with too high correlation to the invariant mass would introduce a bias in training the classifier and could not be used in similarity checks between simulation and data,
 because the sWeights are based on the $B^0$ candidate mass. The remaining $\num{390}$ variables are checked to be correctly modelled by simulation and have significantly different 
 distributions for signal and background. This is done using the Kolmogorov Smirnov test statistic defined in \autoref{eq:Kolmogorov} for weighted distributions as a measure of similarity. 
-To check agreement between simulation and data, the distributions of sWeighted data are compared to the control channel distributions and $\num{190}$ variables with a test statistic 
-of $d > \num{0.05}$ are removed. The variables are also required to have a test statistic of $d > \num{0.2}$ when comparing signal (simulation) and background (USB), leaving 
+To check agreement between simulation and data, the distributions of sWeighted data are compared to the control channel distributions and 
+only variables with a test statistic of $d < \num{0.05}$ are kept. $\num{190}$ variables with a higher test statistic are removed. 
+The variables are also required to have a test statistic of $d > \num{0.2}$ when comparing signal (simulation) and background (USB), leaving 
 $\num{94}$ variables. After further removing variables that are highly correlated (correlation $> 0.9$) to others or dublicates of another variable, $\num{18}$ variables are 
 left that are used for the training of the multivariate classifier.
 \begin{figure}
@@ -107,7 +108,7 @@ Additionally, the feature importance of the BDT variables is checked for imbalan
 
 
 \subsection{Optimization of the classification threshold}
-After applying all BDT's to the data, a cut on the classifers response has to be made. Therefore the mean classifer response between all 5 BDT's is calculated.
+After applying all BDT's to the data, a cut on the classifiers response has to be made. Therefore the mean classifier response between all 5 BDT's is calculated.
 The classification threshold separating signal and background is optimized using the Punzi figure of merit \autoref{eq:FOM}.
 The signal efficiency $\varepsilon$ is therefore calculated for each threshold as the selection efficiency on the signal simulation. The background yield in the signal region $B$
 is estimated via a fit of an exponential function to the upper sideband of the data after applying the selection threshold, and extrapolated to the signal window.
@@ -138,11 +139,15 @@ The invariant $B^0$ mass distribution of the data after applying the cut on the 
   \caption{Semi logarithmic invariant mass distribution of the $B^0$ candidates in data, after the cut on the classifier response is applied.}
   \label{fig:mass_after_BDT}
 \end{figure}
-A peak of the signal decay \printBstoPsiKs \: can be seen.
+%A peak of the signal decay \pritBstoPsiKs \: can be seen.
+In the mass region below $\qty{5150}{\mega\eV}$, a prominent background band of partially reconstructed decays can be seen.
 
-In order to determine the signal yield, a fit to the mass spectrum of the $B^0$ candidates is applied. 
-The signal peaks are modeled with two gaussian distributions, which start values for the mean $\mu$ and width $\sigma$ are defined by fits to simulation. The values itself 
-are allowed to vary freely to account for mass resolution differences in data and simulation. 
+In order to determine the signal yield, a fit to the mass spectrum of the $B^0$ candidates is applied.
+The fit range is defined as $\qty{5200}{\mega\eV} < m(B^0) < \qty{6100}{\mega\eV}$ to not include the partially reconstructed background.
+The signal peaks are modeled with two gaussian distributions with a fixed width ratio $\alpha$ which is determined from simulation.
+Using this definition, the width of the $B^0$ peak is given by $\sigma_0$ and the width of the $B^0_s$ peak by $\sigma_0 \cdot \alpha$.
+The values of the width $\sigma_0$ and the mean values $\mu_{B_d}, \mu_{B_s}$ of the gaussian distributions are allowed to vary freely to account 
+for mass resolution differences in data and simulation. 
 The background is again modeled by an exponential function with decay constant $\tau$.
 An extended, unbinned negative Log-Likelihood fit is performed, including the fractions $s_{B_d}, s_{B_s}$ and $b$ of signal, control channel and background components.
 The resulting graph is shown in \autoref{fig:fit}.
@@ -154,11 +159,11 @@ The resulting graph is shown in \autoref{fig:fit}.
 \end{figure}
 The fit parameters follow as 
 \begin{align*}
-  s_{B_s} &= \num{43 +- 8} & s_{B_d} &= \num{5010 +- 71} \\
-  \mu_{B_s} &= \qty{5366.9 +- 0.9}{\mega\eVperc} & \mu_{B_d} &= \qty{5279.9 +- 0.9}{\mega\eVperc} \\
-  \sigma_{B_s} &=  \qty{4.6 +- 0.8}{\mega\eVperc} & \sigma_{B_s} &=  \qty{6.22 +- 0.07}{\mega\eVperc} \\
-  b &= \num{492 +- 24}  & \tau &= \num{124 +- 6}.
+  s_{B_s} &= \num{45 +- 8} & s_{B_d} &= \num{5010 +- 70} \\
+  \mu_{B_s} &= \qty{5367.3 +- 1.2}{\mega\eVperc} & \mu_{B_d} &= \qty{5279.9 +- 0.9}{\mega\eVperc} \\
+  \sigma_{0} &=  \qty{6.21 +- 0.08}{\mega\eVperc} & \alpha &=  \num{1.056 +- 0.011} \\
+  b &= \num{233 +- 19}  & \tau &= \num{140 +- 10}.
 \end{align*}
-From these, the significance proxy as defined in \autoref{eq:sign} of the observation of the signal can be calculated.
-Therefore, the signal and background events in the signal window are interpolated from the fit results as $n_\text{sig} = \num{43}$ and $n_\text{bkg} = \num{30}$.
-The significance proxy then reads $m = \num{5.07}$.
+From these, the significance as defined in \autoref{eq:sign} of the observation of the signal can be calculated.
+Therefore, the signal and background events in the signal window are interpolated from the fit results as $n_\text{sig} = \num{45}$ and $n_\text{bkg} = \num{32}$.
+The significance proxy then reads $m = \num{5.1}$.
