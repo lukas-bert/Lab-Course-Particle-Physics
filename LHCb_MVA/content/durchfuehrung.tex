@@ -13,7 +13,9 @@ The LHCb experiment consists of several sub-detectors, each with a different spe
     \label{fig:LHCb_detector}
 \end{figure}
 In the immediate proximity of the interaction point, the Vertex Locator (VELO) is located. Primary and secondary vertices are identified by the 52 silicon pixel modules. The detector is divided into two
-halves that are retractable. During the injection phase, the VELO is sitting in its retracted position because the beam is not as focused as during the stable beam phase. Due to the closeness of the VELO to the 
+halves that are retractable. During the injection phase, the VELO is sitting in its retracted position because the beams are not as focused as during the stable beam phase.
+It is imperative to prevent the beams from colliding with the detector material due to their high energy, which could cause significant damage.
+Due to the closeness of the VELO to the 
 interaction point, the primary veritices can be reconstructed with great accuracy. \\
 One of the two Ring Imaging Cherenkov detectors (RICH) is located right before the \qty{1.4}{\tesla} dipole magnet while the other RICH detector is situated behind the tracking stations. Two materials with 
 different refractive indices are used in the two RICH detectors to determine the velocity of the particles via the Cherenkov effect. The implementation of two detectors allows for a larger momentum range 
@@ -24,7 +26,7 @@ For the determination of the energy of the particles, the electromagnetic and ha
 technology is used. Here, an absorber material and a detector layer of a scintillating material are stacked alternately. The HCAL is constructed similarly but with the scintillating tiles running 
 parallel to the beam axis. \\
 Muon stations at the end of the detector identify the muons that are passing through the detector. This is accomplished by four multi-wire proportional chambers. \\
-Because of the large number of potential events, a trigger system is used to identify interesting decays. The data of these are then saved for further offline analysis.
+Because of the large number of potential events, a trigger system is used to identify interesting decays. The data of these decays are then saved for further offline analysis.
 
 \section{Analysis strategy}
 \label{sec:strategy}
@@ -32,11 +34,11 @@ The data used in this analysis consists of three different data samples. One is 
 and is dominated by combinatorial background. The two other datasets are Monte Carlo simulation samples of the signal decay \printBstoPsiKs \: 
 and the control channel \printBdstoPsiKs. \\
 First, the training samples for the background and the signal need to be defined. In the case for the data of \printBdstoPsiKs \: decays, the background is predominatly combinatorial. The recorded LHCb 
-data is used for the training of this classifier. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
+data are used for the training of this classifier. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
 The training samples for the signal classification cannot be sourced from the recorded data but must be simulated with Monte Carlo simulations. This leads to the problem of imperfect simulation data 
 that does not match the true data of the decay. This is due to not perfect theoretical models and computing constraints. The challenges of this problem can at least be partially overcome by introducing 
 computing weights. The here provided simulation data contain a variable called \texttt{kinematic\_weights} that helps to correct for the mismatches between simulation and recorded data. \\
-Feature selection is another important aspect of this analysis. The classifier uses a number of features to decide whether the data is background or signal. Features, that can be used here, are extracted
+Feature selection is another important aspect of this analysis. The classifier uses a number of features to decide whether the data are background or signal. Features, that can be used here, are extracted
 from the control channel \printBtoPsiKs. This decay is similar to the decay \printBstoPsiKs \: and therefore its features can be fed to the classifier.
 In principle, any number of features can be used by a classifier but the runtime scales with the number of features and too many features will eventually lead to overfitting. Some of the here provided features
 are also redundant and do not include additional information. \\
