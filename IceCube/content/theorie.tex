@@ -130,7 +130,7 @@ Another useful metric is the $f_\beta$ score
     f_\beta = (1 + \beta^2)\frac{p \cdot r}{\beta^2 p + r},
     \label{eq:f_beta}
 \end{equation}
-which is the harmonic mean of precision and recall with the recall weighed by a factor $\beta$.
+which is the harmonic mean of precision and recall with the recall weighted by a factor $\beta$.
 These metrics depend on the classification threshold $t$ that is applied to separate signal and background by a cut on the classifiers output, which is typically a value 
 between $0$ and $1$, where $1$ indicates a high probability of being signal and vice versa.
 A metric independent of the threshold $t$ can be obtained by the \textit{Receiver Operating Characteristic} (ROC) curve. In the ROC curve, the true positive rate 
@@ -140,5 +140,5 @@ A metric independent of the threshold $t$ can be obtained by the \textit{Receive
     \label{eq:TPR_FPR}
 \end{align}
 while varying the threshold $t$. The area under the curve (AUC-score) is a measure for the quality of the classification and takes the values $\num{0.5}$ for random guessing 
-and $\num{1}$ for a perfect classification. A AUC-score smaller than $\num{0.5}$ indicates, that the model confuses signal and background, which can easily be corrected by 
+and $\num{1}$ for a perfect classification. An AUC-score smaller than $\num{0.5}$ indicates, that the model confuses signal and background, which can easily be corrected by 
 inverting the classification.
