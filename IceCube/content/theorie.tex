@@ -28,7 +28,7 @@ traced back to their origin. Neutrinos only interact via the weak interaction an
 their way to earth which is not possible for gamma rays that interact via the electromagnetic interaction.
 This analysis will focus on neutrinos that are measured by the IceCube experiment, which is described in detail in \autoref{sec:Detector}.
 At IceCube, atmospheric and cosmics neutrinos are measured. The atmospheric neutrinos are created in the previously mentioned air showers and are further categorized into 
-conventional and prompt neutrinos. Conventional neutrinos originate from kaon and pion decays into a muon and muon neutrino. Since these particles have a comparatively long
+conventional and prompt neutrinos. Conventional neutrinos originate from kaon and pion decays to muons and muon antineutrinos. Since these particles have a comparatively long
 lifetime, they lose a significant amount of energy before they decay, resulting in an energy spectrum with a spectral index of $\gamma \approx \num{-3.7}$. 
 Prompt neutrinos stem from semi-leptonic decays of heavy hadrons like $D$ mesons and $\Lambda$ baryons which have a short lifetime and therefore do not lose as much energy,
 resulting in a energy spectrum with $\gamma \approx \num{-2.7}$, similar to the spectrum of charged cosmic rays. Here, the desired signal to be measured is the cosmic neutrinos from astrophysical sources. 
@@ -88,11 +88,11 @@ is used to distinguish between signal with $Q > 1$ and background.
 \subsubsection{Decision Trees}
 \label{subsec:decision_trees}
 Decision trees are binary classifiers, that separate between different classes by subsequently applying binary cuts on the available variables. 
-For each decision point (\textit{node}), the cut that maximes the separation between the classes is searched. The data is divided into two subsets after each cut, till a
+For each decision point (\textit{node}), the cut that maximizes the separation between the classes is searched. The data is divided into two subsets after each cut, till a
 maximum number of cuts (depth) is reached or the classes are fully separated.
 To minimize overtraining, different techniques can be employed to make the classification more robust. 
 For example, a random forest can be used. In a random forest, an ensemble of individual decision trees is trained, where each tree is trained on a subset of the training data
-using $k$ randomly selected variables. To get a classification, the arithmetic mean of each trees decision is taken.
+using $k$ randomly selected variables. To get a classification, the arithmetic mean of all individual tree decisions is taken.
 %For example, a boosted decision tree (\textit{BDT}) can be used.
 %A BDT is an ensemble of multiple decision trees, where each tree is sequentially trained with weighting previously misclassified data higher. By using this approach, 
 %the bias and variance of the classification are reduced, while the accuray is inreased.
@@ -109,7 +109,7 @@ assigned to the event.
 In order to evaluate the performance of a classifier on the classification task, different metrics are used.
 The classification output can be grouped into four categories: Correctly classified signal events (true positives \enquote{\textit{tp}}), correctly classified background 
 (true negatives \enquote{\textit{tn}}), background events falsely classified as signal (false positives \enquote{\textit{fp}}) and signal events falsely classified as background
-(false negatives \enquote{\textit{fn}}). With these definition, the accuracy 
+(false negatives \enquote{\textit{fn}}). With these definitions, the accuracy 
 \begin{equation}
     a = \frac{\text{tp} + \text{tn}}{\text{tp} + \text{tn} + \text{fn} + \text{fp}},
     \label{eq:accuracy}
