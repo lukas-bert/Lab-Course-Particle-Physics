@@ -1,10 +1,23 @@
-\section{Motivation}
+\section{Abstract}
 
-During Run 2 (2015-2018) of the LHCb experiment at CERN, proton bunches with a centre of mass energy of $\qty{13}{\tera\electronvolt}$ collided approximately $40 \times 10^6$ times per second~\cite{LHCb_MVA}.
-Next to potentially interesting processes for this analysis, a lot of very common decays as well as combinatorial background are recorded, due to trigger decisions. To identify and extract rare decay channels, an extensive analysis including machine learning methods is needed.
-This analysis is aimed at finding events coming from the decay $B_s^0 \to \psi (2S)K_S^0$ using data recorded by the LHCb experiment in Run 2.\\
+This analysis is aimed at finding events coming from the decay $B_s^0 \to \psi (2S)K_S^0$ using a large data sample recorded by the LHCb experiment in Run 2. 
+To identify and extract rare decay channels, an extensive analysis including machine learning methods is needed.
 The extracted number of signal events is $n_\text{sig} = \num{45}$ and the number of background events is $n_\text{bkg} = \num{32}$, with a significance of $m = \num{5.1}$ in the signal region.
 
+\section{Introduction}
+The Standard Model (SM) of Particle Physics describes all fundamental interactions except for the gravitational force.
+However, there are many phenomena such as the gravitational force, the enormous matter-antimatter asymmetry observed in the universe and the presence of
+dark matter that cannot be properly explained. Hence, it is important to test the SM by means of precision measurements. In contrast to searches of New Physics (NP) through the
+direct production in high-energy collisions, they can also be produced virtually in low-energy processes such as in hadronic decays involving beauty or charm quarks. Due to Heisenberg's uncertainty
+principle, they can exist for a short period of time and contribute as quantum corrections, representing a complementary way of searching for NP indirectly. The Large Hadron Collider beauty (LHCb)
+experiment investigates the differences between matter and antimatter by studying mesons containing charm and beauty quarks.\\
+This analysis is aimed at using machine learning methods to extract rare signal events from a large data sample including $B_s^0 \to \psi (2S)K_S^0$ candidates recorded during Run 2 of the LHCb experiment. The decay 
+channel $B_s^0 \to \psi (2S)K_S^0$ is a very rare decay, resulting in the data being dominated by combinatorial background and more common decays, which have been recorded due to trigger criteria being wrongly fulfilled.
+To identify and extract these rare signal events, an extensive analysis including machine learning methods is needed.\\
+The used data has been recorded uring Run 2 (2015-2018) of the LHCb experiment at CERN, proton bunches with a centre of mass energy of $\qty{13}{\tera\electronvolt}$ collided approximately $40 \times 10^6$ times per second~\cite{LHCb_MVA}.
+The theoretical framework will be presented in \autoref{sec:Theorie}, followed by a description of the LHCb experiment in \autoref{sec:Detector}. The analysis strategy is presented in \autoref{sec:strategy}, followed by
+the study of the dataset and the training of the machine learning model in \autoref{sec:Analysis}. The final results are summarized in \autoref{sec:Discussion}.
+\newpage
 \section{Theory}
 \label{sec:Theorie}
 
