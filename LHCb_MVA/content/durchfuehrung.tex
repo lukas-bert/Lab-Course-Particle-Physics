@@ -34,15 +34,16 @@ The data used in this analysis consists of three different data samples. One is 
 and is dominated by combinatorial background. The two other datasets are Monte Carlo simulation samples of the signal decay \printBstoPsiKs \: 
 and the control channel \printBdstoPsiKs. \\
 First, the training samples for the background and the signal need to be defined. In the case for the data of \printBdstoPsiKs \: decays, the background is predominatly combinatorial. The recorded LHCb 
-data are used for the training of this classifier. It is to note that the region, where most of the signal is expected, needs to be excluded from this to not get any signal bias into the background classification. \\
-The training samples for the signal classification cannot be sourced from the recorded data but must be simulated with Monte Carlo simulations. This leads to the problem of imperfect simulation data 
-that does not match the true data of the decay. This is due to not perfect theoretical models and computing constraints. The challenges of this problem can at least be partially overcome by introducing 
+data are used for the training of this classifier. It is to note that only the region where the background is present is used for the search. \\
+The training samples for the signal classification cannot be sourced from the recorded data but must be simulated with Monte Carlo simulations. Imperfect simulation data 
+that do not match the true data of the decay can cause problems. This is due to not perfect theoretical models and computing constraints. The challenges of this problem can at least be partially overcome by introducing 
 computing weights. The here provided simulation data contain a variable called \texttt{kinematic\_weights} that helps to correct for the mismatches between simulation and recorded data. \\
 Feature selection is another important aspect of this analysis. The classifier uses a number of features to decide whether the data are background or signal. Features, that can be used here, are extracted
 from the control channel \printBtoPsiKs. This decay is similar to the decay \printBstoPsiKs \: and therefore its features can be fed to the classifier.
-In principle, any number of features can be used by a classifier but the runtime scales with the number of features and too many features will eventually lead to overfitting. Some of the here provided features
+In principle, a classifier can use any number of features, but the runtime increases with the number of features. Having too many features can cause overfitting, 
+where the classifier learns the training data and noise too well, resulting in poorer performance on new, unseen data. Some of the here provided features
 are also redundant and do not include additional information. \\
 For the purpose of ascertaining the best classification threshold, the FOM (\autoref{eq:FOM}) is determined by calculating the signal efficiency and number of background events
 in the signal region. \\
 In the final step, the trained and optimized classifier is used to classify the recorded LHCb data. This leads to the removal of the combinatorial background so that the $B^0$ and $B^0_s$ peaks are clearly
-recognizable. The number of signal events can then be extracted. 
+recognizable. The number of signal events can then be extracted by fitting a background and signal model to the data.
