@@ -25,7 +25,7 @@ extension \texttt{mrmr\_selection} \cite{mrmr} is used. In \autoref{fig:best_fea
 
 \subsection{Multivariate selection}
 The Naive Bayes, the Random Forest and the kNN classifiers are chosen for the multivariate selection. For all three classifiers, the ten best features are used and a k-fold with $n=\num{5}$ splits is performed. The classifiers are 
-trained via the cross-validation method (see \autoref{sec:cross-validation}). A values of $\beta=0.1$ for the $f_{\beta}$ score (\eqref{eq:f_beta}) is used throughout this analysis, placing more importance on the precision rather 
+trained via the cross-validation method (see \autoref{sec:cross-validation}). A values of $\beta=0.1$ for the $f_{\beta}$ score \eqref{eq:f_beta} is used throughout this analysis, placing more importance on the precision rather 
 than the recall. \\
 The performance of each classifier is discussed in the following sections.
 
@@ -76,21 +76,39 @@ a cross-validation is executed and the quality parameters are returned as
 \end{align*}
 For this classifier, the best threshold value is acquired as $t_{\mathrm{best}} = \num{0.8889}$. In the Figures \ref{fig:apr_rdm}, \ref{fig:f_beta_rdm} and \ref{fig:confusion_rdm}, the quality parameters
 and the confusion matrix are shown.
+ \begin{figure}
+     \centering
+     \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{content/plots/apr_rdm.pdf}
+        \caption{Accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_rdm}.}
+        \label{fig:apr_rdm}
+     \end{subfigure}
+        \hfill
+     \begin{subfigure}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{content/plots/f_beta_rdm.pdf}
+        \caption{The $f_{\beta}$ score dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
+        \label{fig:f_beta_rdm}
+     \end{subfigure}
+     \caption{Qualtity parameters for the Random Forest classifier.}
+     \label{fig:RDM}
+   \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{content/plots/apr_rdm.pdf}
+%     \caption{Random Forest: accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_rdm}.}
+%     \label{fig:apr_rdm}
+% \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{content/plots/f_beta_rdm.pdf}
+%     \caption{Random Forest: $f_{\beta}$ dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
+%     \label{fig:f_beta_rdm}
+% \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/apr_rdm.pdf}
-    \caption{Random Forest: accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_rdm}.}
-    \label{fig:apr_rdm}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/f_beta_rdm.pdf}
-    \caption{Random Forest: $f_{\beta}$ dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
-    \label{fig:f_beta_rdm}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/confusion_rdm.pdf}
+    \includegraphics[width=0.5\textwidth]{content/plots/confusion_rdm.pdf}
     \caption{Random Forest: Confusion matrix with threshold value $t_{\mathrm{best}} = \num{0.8889}$.}
     \label{fig:confusion_rdm}
 \end{figure}
@@ -99,22 +117,39 @@ and the confusion matrix are shown.
 For the k nearest neighbors (kNN) algorithm, the procedure is the same as before. In \autoref{subsec:kNN}, this classifier is introduced.
 The Figures \ref{fig:apr_kNN}, \ref{fig:f_beta_kNN} and \ref{fig:confusion_kNN} contain information about the quality parameters and the confusion 
 matrix.
-
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/apr_kNN.pdf}
-    \caption{kNN: accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_kNN}.}
-    \label{fig:apr_kNN}
-\end{figure}
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{content/plots/apr_kNN.pdf}
+        \caption{Accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_kNN}.}
+        \label{fig:apr_kNN}
+    \end{subfigure}
+        \hfill
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{content/plots/f_beta_kNN.pdf}
+      \caption{The $f_{\beta}$ score dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
+      \label{fig:f_beta_kNN}
+    \end{subfigure}
+    \caption{Qualtity parameters for the kNN classifier.}
+    \label{fig:kNN}
+  \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{content/plots/apr_kNN.pdf}
+%     \caption{kNN: accuracy, precision and recall. Magnification of the relevant part of the $f_{\beta}$ score is shown in \autoref{fig:f_beta_kNN}.}
+%     \label{fig:apr_kNN}
+% \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{content/plots/f_beta_kNN.pdf}
+%     \caption{kNN: $f_{\beta}$ dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
+%     \label{fig:f_beta_kNN}
+% \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/f_beta_kNN.pdf}
-    \caption{kNN: $f_{\beta}$ dependend on the threshold $t$. The maximum value for $f_{\beta}$ is marked with dashed lines.}
-    \label{fig:f_beta_kNN}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{content/plots/confusion_kNN.pdf}
+    \includegraphics[width=0.5\textwidth]{content/plots/confusion_kNN.pdf}
     \caption{Random Forest: Confusion matrix with threshold value $t_{\mathrm{best}} = \num{0.9394}$.}
     \label{fig:confusion_kNN}
 \end{figure}
@@ -129,13 +164,13 @@ The values for accuracy, precision, ROC-AUC score, and $f_{\beta}$ score are as 
 \subsection{Comparison of the learning algorithms}
 In \autoref{fig:ROC_all}, the ROC curves for all three classifiers is depicted. The values for the true positive (TP) rate and the false positive (FP) rate are
 extracted from the corresponding confusion matrices. The individual ROC-AUC scores are listed in \autoref{tab:ROC-AUC}.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{content/plots/ROC_all.pdf}
     \caption{ROC curves for the three different classifiers.}
     \label{fig:ROC_all}
 \end{figure}
-\begin{table}
+\begin{table}[H]
     \centering
     \caption{ROC-AUC scores for the different classifiers.}
     \label{tab:ROC-AUC}
